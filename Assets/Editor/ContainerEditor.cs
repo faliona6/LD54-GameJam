@@ -9,6 +9,11 @@ public class ContainerEditor : Editor
     {
         Container matrixExample = (Container)target;
 
+        // Prefab Name
+        string prefabName = EditorGUILayout.TextField("Prefab Name:", matrixExample.prefabName);
+        matrixExample.prefabName = prefabName;
+
+        // Number of Rows
         int newRowCount = EditorGUILayout.IntField("Number of Rows", matrixExample.matrix.Count);
         while (newRowCount > matrixExample.matrix.Count)
         {
@@ -19,21 +24,33 @@ public class ContainerEditor : Editor
             matrixExample.matrix.RemoveAt(matrixExample.matrix.Count - 1);
         }
 
-        for (int i = 0; i < matrixExample.matrix.Count; i++)
+        // If matrix is not empty, draw columns count and grid
+        if (matrixExample.matrix.Count > 0)
         {
-            int newColCount = EditorGUILayout.IntField($"Row {i} Columns", matrixExample.matrix[i].columns.Count);
-            while (newColCount > matrixExample.matrix[i].columns.Count)
+            int newColCount = EditorGUILayout.IntField("Number of Columns", matrixExample.matrix[0].columns.Count);
+
+            for (int i = 0; i < matrixExample.matrix.Count; i++)
             {
-                matrixExample.matrix[i].columns.Add(0);
-            }
-            while (newColCount < matrixExample.matrix[i].columns.Count)
-            {
-                matrixExample.matrix[i].columns.RemoveAt(matrixExample.matrix[i].columns.Count - 1);
+                while (newColCount > matrixExample.matrix[i].columns.Count)
+                {
+                    matrixExample.matrix[i].columns.Add(0);
+                }
+                while (newColCount < matrixExample.matrix[i].columns.Count)
+                {
+                    matrixExample.matrix[i].columns.RemoveAt(matrixExample.matrix[i].columns.Count - 1);
+                }
             }
 
-            for (int j = 0; j < matrixExample.matrix[i].columns.Count; j++)
+            // Drawing the grid
+            EditorGUILayout.LabelField("Matrix Values:");
+            for (int i = 0; i < matrixExample.matrix.Count; i++)
             {
-                matrixExample.matrix[i].columns[j] = EditorGUILayout.IntField(matrixExample.matrix[i].columns[j]);
+                EditorGUILayout.BeginHorizontal();
+                for (int j = 0; j < matrixExample.matrix[i].columns.Count; j++)
+                {
+                    matrixExample.matrix[i].columns[j] = EditorGUILayout.IntField(matrixExample.matrix[i].columns[j], GUILayout.Width(40));
+                }
+                EditorGUILayout.EndHorizontal();
             }
         }
 
