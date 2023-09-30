@@ -10,7 +10,7 @@ namespace CustomGrid
         public List<int> columns = new List<int>();
     }
 
-    [CreateAssetMenu(fileName = "NewContainer", menuName = "ScriptableObjects/SpawnManagerScriptableObject", order = 1)]
+    [CreateAssetMenu(menuName = "Food/Container", order = 1)]
     public class Container : ScriptableObject
     {
         public string prefabName;

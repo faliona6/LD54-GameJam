@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     public static Player Instance { get; private set; }
-    
+
     [SerializeField] LayerMask _moveableLayer;
 
     public PlayerInventory PlayerInventory;
@@ -18,11 +18,10 @@ public class Player : MonoBehaviour {
         } else {
             Instance = this;
         }
-        
+
         _mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             // Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -43,11 +42,12 @@ public class Player : MonoBehaviour {
                 }
             }
         }
+
         if (Input.GetMouseButtonUp(0)) {
             if (_heldMoveable != null) {
                 Transform dropPos = _heldMoveable.Drop();
                 StartCoroutine(Utils.MoveObjToPoint(_heldMoveable.Transform, dropPos.position));
-                
+
                 _heldMoveable = null;
             }
         }
