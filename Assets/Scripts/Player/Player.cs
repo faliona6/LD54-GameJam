@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    public static Player Instance { get; private set; }
+    
     [SerializeField] LayerMask _moveableLayer;
+
+    public PlayerInventory PlayerInventory;
 
     IMoveable _heldMoveable;
     Camera _mainCamera;
 
     void Awake() {
+        if (Instance != null && Instance != this) {
+            Destroy(gameObject);
+        } else {
+            Instance = this;
+        }
+        
         _mainCamera = Camera.main;
     }
 
