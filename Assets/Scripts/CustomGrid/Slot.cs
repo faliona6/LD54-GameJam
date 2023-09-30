@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Slot : MonoBehaviour {
     public int x, y;
@@ -11,6 +12,9 @@ public class Slot : MonoBehaviour {
 
     public SlotGrid SlotGrid => SlotGrid;
     SlotGrid _mSlotGrid;
+
+    static UnityEvent OnSlotPlaced = new UnityEvent();
+    static UnityEvent OnSlotPickedUp = new UnityEvent();
 
     void Awake() {
         _mSlotGrid = transform.parent.GetComponent<SlotGrid>();
@@ -30,7 +34,7 @@ public class Slot : MonoBehaviour {
         //     
         // }
         
-        // Send Unity Event?
+        OnSlotPlaced.Invoke();
     
         return true;
     }
@@ -48,7 +52,7 @@ public class Slot : MonoBehaviour {
         Ingredient ing = _ingredient;
         _ingredient = null;
         
-        // Send Unity Event?
+        OnSlotPickedUp.Invoke();
         
         return ing.transform;
     }
