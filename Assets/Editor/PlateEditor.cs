@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-using Plates;
+using Customer;
 
 [CustomEditor(typeof(Plate))]
 public class PlateEditor : Editor
