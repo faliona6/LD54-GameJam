@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5e120bc6e37c1487e880c2f29aa126d2
+=======
+guid: 7db9ae8411ad02640a1de93b567be884
+>>>>>>> 1338e5a (Added Initial Plate logic)
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
