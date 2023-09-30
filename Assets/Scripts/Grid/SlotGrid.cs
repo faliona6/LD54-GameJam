@@ -20,6 +20,8 @@ public class SlotGrid : MonoBehaviour {
     void Init(int[,] shape) {
         for (int x = 0; x < shape.GetLength(0); x++) {
             for (int y = 0; y < shape.GetLength(1); y++) {
+                // TODO: parsing active slots in shape into slotgrid here
+                
                 Slot slot = Instantiate(_slotPrefab, transform).GetComponent<Slot>();
                 slot.transform.localPosition = new Vector3(x, y, 0);
                 
