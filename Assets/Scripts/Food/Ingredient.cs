@@ -7,8 +7,10 @@ public class Ingredient : MonoBehaviour
 {
     public SO_Ingredient ingredient;
     
-    public int cookTime;
+    public float cookTime;
     public bool cooked;
+    
+    Dictionary<FoodFlavors, int> flavorScore; // i.e. {Savory: 1, Sweet: 2 }
 
     public GameObject prefab;
 
@@ -19,13 +21,8 @@ public class Ingredient : MonoBehaviour
         cookTime = ingredient.cookTime;
     }
 
-    public void Place()
+    public void setCooked()
     {
-        
-    }
-
-    public void PickUp()
-    {
-        
-    }
+        cooked = true;
+    }    
 }
