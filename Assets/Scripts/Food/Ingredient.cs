@@ -1,17 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SO_Ingredient ingredient;
+    
+    public int cookTime;
+    public bool cooked;
+
+    public List<Vector2Int> shape;
+
+    private void Start()
+    {
+        cookTime = ingredient.cookTime;
+    }
+
+    public void Place()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PickUp()
     {
         
     }
