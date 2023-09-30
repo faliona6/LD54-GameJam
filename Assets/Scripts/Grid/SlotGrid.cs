@@ -1,64 +1,57 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class SlotGrid : MonoBehaviour {
-    public Slot[,] slotGrid;
+    public Dictionary<Vector2Int, Slot> slotGrid = new();
 
-    public int Width => width;
-    public int Height => height;
-    [SerializeField] int width, height;
+    // public int Width => _width;
+    // public int Height => _height;
+    // [SerializeField] int _width, _height;
 
-    public GameObject slotPrefab;
+    [SerializeField] GameObject _slotPrefab;
 
     void Awake() {
-        SetupSlotGrid();
+        int[,] a = new int[2, 3];
+        Init(a);
     }
 
-    void SetupSlotGrid() {
-        slotGrid = new Slot[width, height];
-        for (int i = 0; i < transform.childCount; i++) {
-            if (transform.GetChild(i).TryGetComponent(out Slot s)) {
-                if (slotGrid[s.x, s.y] != null) {
-                    Debug.LogError("Two slots have same coordinates");
-                }
-                slotGrid[s.x, s.y] = s;
+    void Init(int[,] shape) {
+        for (int x = 0; x < shape.GetLength(0); x++) {
+            for (int y = 0; y < shape.GetLength(1); y++) {
+                // TODO: parsing active slots in shape into slotgrid here
+                
+                Slot slot = Instantiate(_slotPrefab, transform).GetComponent<Slot>();
+                slot.transform.localPosition = new Vector3(x, y, 0);
+                
+                slotGrid[new Vector2Int(x, y)] = slot;
             }
         }
     }
 
-    public Slot Forward(Slot origin, bool flip) {
-        return SelectSlotRelative(origin, flip, new Vector2Int(1, 0));
-    }
-
-    public Slot SelectSlotRelative(Slot origin, bool flip, Vector2Int relativePos) {
-        if (flip) relativePos.x = -relativePos.x;
+    public Slot SelectSlotRelative(Slot origin, Vector2Int relativePos) {
         int targetX = origin.x + relativePos.x;
         int targetY = origin.y + relativePos.y;
 
-        if (targetX > width - 1 || targetX < 0 || targetY > height - 1 || targetY < 0) {
+        if (!IsInBounds(targetX, targetY)) {
             return null;
         }
 
-        return slotGrid[targetX, targetY];
+        return slotGrid[new Vector2Int(targetX, targetY)];
     }
     
-    // Returns slot using absolute position. Can mirror selected pos over middle dividing line, used for enemy targetting.
-    public Slot SelectSlot(Vector2Int pos, bool flip) {
-        if (flip) pos.x = Math.Abs(pos.x - width + 1);
-        
-        if (pos.x > width - 1 || pos.x < 0 || pos.y > height - 1 || pos.y < 0) {
+    // Returns slot using absolute position.
+    public Slot SelectSlot(Vector2Int pos) {
+        if (!IsInBounds(pos.x, pos.y)) {
             return null;
         }
 
-        return slotGrid[pos.x, pos.y];
+        return slotGrid[pos];
     }
 
-    void CreateSlotGrid() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                Instantiate(slotPrefab, new Vector3(transform.position.x + i, 0, transform.position.z + j),
-                    transform.rotation, transform);
-            }
-        }
+    public bool IsInBounds(int x, int y) {
+        return slotGrid.ContainsKey(new Vector2Int(x, y));
     }
+    // public bool IsInBounds(int x, int y) { return !(x < 0 || x >= _width || y < 0 || y >= _height); }
 }
