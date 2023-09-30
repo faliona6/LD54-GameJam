@@ -7,11 +7,18 @@ public class SO_Ingredient : ScriptableObject
 {
     public string name;
     public FoodType FoodType;
+    Dictionary<FoodFlavors, int> intitialFlavorScore;
     public int cookTime;
     public List<Vector2Int> shape;
 }
 
 public enum FoodType
 {
-    Meat = 0,
+    Meat,
+    Vegetable,
+}
+public enum FoodFlavors
+{
+    Sweet,
+    Savory
 }
