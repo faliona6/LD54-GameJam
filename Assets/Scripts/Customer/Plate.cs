@@ -1,13 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Grid;
 
 namespace Customer
 {
-    [CreateAssetMenu(fileName = "NewPlate", menuName = "ScriptableObjects/SpawnManagerScriptableObject", order = 1)]
-    public class Plate : ScriptableObject
+    
+    public class Plate : MonoBehaviour
     {
         public string prefabName;
-        public int[,] shape = new int[3, 3];
+        public Container container = new Container();
+        public SlotGrid slotGrid;
+
+        private void Start()
+        {
+
+        }
+
+        public void Scoring()
+        {
+
+        }
     }
 }
