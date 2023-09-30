@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public interface IMoveable {
-    bool IsStackable { get; set;  }
-
+    public Transform Transform { get; }
+    
+    Transform Drop();
     Transform PickUp();
-    void Drop();
 }

@@ -8,8 +8,6 @@ public class SlotGrid : MonoBehaviour {
     public int Height => height;
     [SerializeField] int width, height;
 
-    public GameObject slotPrefab;
-
     void Awake() {
         SetupSlotGrid();
     }
@@ -26,12 +24,7 @@ public class SlotGrid : MonoBehaviour {
         }
     }
 
-    public Slot Forward(Slot origin, bool flip) {
-        return SelectSlotRelative(origin, flip, new Vector2Int(1, 0));
-    }
-
-    public Slot SelectSlotRelative(Slot origin, bool flip, Vector2Int relativePos) {
-        if (flip) relativePos.x = -relativePos.x;
+    public Slot SelectSlotRelative(Slot origin, Vector2Int relativePos) {
         int targetX = origin.x + relativePos.x;
         int targetY = origin.y + relativePos.y;
 
@@ -42,23 +35,12 @@ public class SlotGrid : MonoBehaviour {
         return slotGrid[targetX, targetY];
     }
     
-    // Returns slot using absolute position. Can mirror selected pos over middle dividing line, used for enemy targetting.
+    // Returns slot using absolute position.
     public Slot SelectSlot(Vector2Int pos, bool flip) {
-        if (flip) pos.x = Math.Abs(pos.x - width + 1);
-        
         if (pos.x > width - 1 || pos.x < 0 || pos.y > height - 1 || pos.y < 0) {
             return null;
         }
 
         return slotGrid[pos.x, pos.y];
-    }
-
-    void CreateSlotGrid() {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                Instantiate(slotPrefab, new Vector3(transform.position.x + i, 0, transform.position.z + j),
-                    transform.rotation, transform);
-            }
-        }
     }
 }
