@@ -6,16 +6,15 @@ namespace Customer
 {
     public class Customer : MonoBehaviour
     {
-        private CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
+        public CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
 
-        public Plate currentPlate { get; private set; } // To keep track of the plate the customer currently has.
+        public Plate currentPlate; // To keep track of the plate the customer currently has.
         public Dictionary<string, int> flavors = new Dictionary<string, int>();
         public Dictionary<string, int> ingredientTypes = new Dictionary<string, int>();
 
         // Start is called before the first frame update
         void Start()
         {
-            RequestPlate();
             GenerateFlavors();
             GenerateIngredientTypes();
         }
@@ -25,25 +24,19 @@ namespace Customer
         }
 
         // Method to request a random plate from the pool.
-        private void RequestPlate()
+        public void RequestPlate()
         {
             if (platePool != null)
             {
+                currentPlate = platePool.GetRandomPlate();
                 if (currentPlate != null)
                 {
-                    currentPlate = platePool.GetRandomPlate();
-                    if (currentPlate != null)
-                    {
-                        Debug.Log($"Customer got a plate with prefab named: {currentPlate.prefabName}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("No plates available in the pool!");
-                    }
+                    Debug.Log($"Customer got a plate with prefab named: {currentPlate.container.prefabName}");
+                    Instantiate(currentPlate, new Vector3(0, 0, 0), Quaternion.identity);
                 }
                 else
                 {
-                    Debug.LogWarning("Customer already has a plate!");
+                    Debug.LogWarning("No plates available in the pool!");
                 }
             }
             else

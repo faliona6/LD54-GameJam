@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Grid;
+using CustomGrid;
 
 namespace Customer
 {
-    
     public class Plate : MonoBehaviour
     {
-        public string prefabName;
-        public Container container = new Container();
-        public SlotGrid slotGrid;
+        public Container container;
+        public SlotGrid slotGrid = new SlotGrid();
 
         private void Start()
         {
-
+            slotGrid.Init(container);
         }
 
         public void Scoring()
         {
 
+        }
+        public override string ToString()
+        {
+            return $"Container: {container}, SlotGrid: {slotGrid}";
         }
     }
 }

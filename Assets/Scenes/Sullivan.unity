@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -285, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131867776
@@ -256,6 +256,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131867774}
   m_CullTransparentMesh: 1
+--- !u!1 &206532019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206532021}
+  - component: {fileID: 206532020}
+  m_Layer: 0
+  m_Name: SlotGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &206532020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206532019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f03286d6b5624df3ac03e6545b86ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotPrefab: {fileID: 0}
+--- !u!4 &206532021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206532019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1047.6649, y: 432.8838, z: -28.031635}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &759275643
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,61 +640,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1841010041
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1841010043}
-  - component: {fileID: 1841010042}
-  m_Layer: 0
-  m_Name: CustomerPlatePoolManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1841010042
+--- !u!114 &1841010042 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8459051162032361828, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+  m_PrefabInstance: {fileID: 7766320330519250968}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841010041}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7238b5d53fdfdb449af9332af4f3689, type: 3}
+  m_Script: {fileID: 11500000, guid: c29119454ff2f3e4d8d33709b1edb9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plateAssets:
-  - {fileID: 11400000, guid: daeb84ce26b840841afc2c6d05ee1316, type: 2}
-  - {fileID: 11400000, guid: 2e4c47e9726f5394f940f5e07c9abde8, type: 2}
-  - {fileID: 11400000, guid: d7d38661ebea65043922627f5bc78507, type: 2}
-  - {fileID: 11400000, guid: abdbb2267cf7ee74c97d7df43e1c3892, type: 2}
-  - {fileID: 11400000, guid: 495f682d9301b33459079a4c3f673cd1, type: 2}
-  - {fileID: 11400000, guid: 907e75f5bcdbb804383eff2049e2cb35, type: 2}
-  - {fileID: 11400000, guid: 8b31f575b0e38c34bb31b82ff1d98f52, type: 2}
-  - {fileID: 11400000, guid: 9850d2c318875654288b4422fa777e84, type: 2}
-  - {fileID: 11400000, guid: dd5f4b13a50147149ab2e5f5ee0d19c0, type: 2}
-  - {fileID: 11400000, guid: 018d7363676f39f4ab5d989050467934, type: 2}
---- !u!4 &1841010043
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841010041}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1947773357
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platePool: {fileID: 1841010042}
+  currentPlate: {fileID: 0}
 --- !u!4 &1947773359
 Transform:
   m_ObjectHideFlags: 0
@@ -797,12 +799,70 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &7766320330519250968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623406614682606391, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621852171435418300, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+      propertyPath: m_Name
+      value: CustomerPlatePoolManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1306112721}
-  - {fileID: 1841010043}
+  - {fileID: 7766320330519250968}
   - {fileID: 1947773359}
   - {fileID: 2126307539}
   - {fileID: 1248279045}
+  - {fileID: 206532021}
