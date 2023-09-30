@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7609490520597488500}
   - component: {fileID: 7300237715928421051}
   m_Layer: 0
-  m_Name: Plate_Box
+  m_Name: Plate_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8684b57239f0e3d41bceb787e70e7f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 11400000, guid: 68cf3d0a9245a3d408791270dbd3fe96, type: 2}
+  container: {fileID: 11400000, guid: 4c84fb19c1c77d2459dc3d72fcad826f, type: 2}
   slotGrid: {fileID: 7300237715928421051}
 --- !u!114 &7300237715928421051
 MonoBehaviour:

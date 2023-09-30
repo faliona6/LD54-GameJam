@@ -8,7 +8,7 @@ namespace Customer
     public class Plate : MonoBehaviour
     {
         public Container container;
-        public SlotGrid slotGrid = new SlotGrid();
+        public SlotGrid slotGrid;
 
         private void Start()
         {
