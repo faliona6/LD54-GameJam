@@ -10,6 +10,8 @@ public class Ingredient : MonoBehaviour
     public int cookTime;
     public bool cooked;
 
+    public GameObject prefab;
+
     public List<Vector2Int> shape;
 
     private void Start()
