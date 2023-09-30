@@ -5,11 +5,12 @@ using CustomGrid;
 
 namespace Pan
 {
-    public class Pan : MonoBehaviour, IMoveable
+    [RequireComponent(typeof(BoxCollider2D), typeof(Rigidbody2D))]
+    public class Pan : MonoBehaviour
     {
         public bool isCooking = false; // Indicates whether the pan is currently cooking.
 
-        public CustomGrid.Container container; // Reference to the container associated with the pan.
+        public Container container; // Reference to the container associated with the pan.
         public List<Slot> panSlots; // Reference to the slot grid associated with the pan.
 
         // Start cooking all ingredients in the pan
@@ -80,25 +81,6 @@ namespace Pan
             }
 
             return ingredientsToCook;
-        }
-
-
-        // TODO: code from GPT, not sure if we need this - Dillon
-        // Implementation of the IMoveable interface for handling dragging and dropping.
-        public Transform Transform => transform;
-
-        public Transform Drop()
-        {
-            // Implement the logic for dropping the pan.
-            // For example, you can set the pan's position and return its transform.
-            return transform;
-        }
-
-        public Transform PickUp()
-        {
-            // Implement the logic for picking up the pan.
-            // For example, you can detach the pan from its current parent and return its transform.
-            return transform;
         }
     }
 }
