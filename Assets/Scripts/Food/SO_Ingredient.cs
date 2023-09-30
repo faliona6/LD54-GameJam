@@ -13,5 +13,7 @@ public class SO_Ingredient : ScriptableObject
 
 public enum FoodType
 {
-    Meat = 0,
+    Sweet,
+    Savory,
+    Sour,
 }
