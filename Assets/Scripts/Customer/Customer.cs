@@ -6,29 +6,63 @@ namespace Customer
 {
     public class Customer : MonoBehaviour
     {
-        public CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
+        private CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
 
-        public Plate CurrentPlate { get; private set; } // To keep track of the plate the customer currently has.
+        public Plate currentPlate { get; private set; } // To keep track of the plate the customer currently has.
+        public Dictionary<string, int> flavors = new Dictionary<string, int>();
+        public Dictionary<string, int> ingredientTypes = new Dictionary<string, int>();
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            RequestPlate();
+            GenerateFlavors();
+            GenerateIngredientTypes();
+        }
+
+        void Update() {
+
+        }
 
         // Method to request a random plate from the pool.
-        public void RequestPlate()
+        private void RequestPlate()
         {
             if (platePool != null)
             {
-                CurrentPlate = platePool.GetRandomPlate();
-                if (CurrentPlate != null)
+                if (currentPlate != null)
                 {
-                    Debug.Log($"Customer got a plate with prefab named: {CurrentPlate.prefabName}");
+                    currentPlate = platePool.GetRandomPlate();
+                    if (currentPlate != null)
+                    {
+                        Debug.Log($"Customer got a plate with prefab named: {currentPlate.prefabName}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("No plates available in the pool!");
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning("No plates available in the pool!");
+                    Debug.LogWarning("Customer already has a plate!");
                 }
             }
             else
             {
                 Debug.LogError("Plate Pool not assigned to the customer.");
             }
+        }
+        public void GenerateFlavors()
+        {
+            //string flavor = FlavorsManager.Instance.GetRandomFlavor();
+            // Use the flavor as needed
+            // ...
+        }
+
+        public void GenerateIngredientTypes()
+        {
+            //string ingredients = IngredientsManager.Instance.GetRandomIngredients();
+            // Use the flavor as needed
+            // ...
         }
     }
 }
