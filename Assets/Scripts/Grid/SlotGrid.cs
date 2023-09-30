@@ -12,11 +12,6 @@ public class SlotGrid : MonoBehaviour {
 
     [SerializeField] GameObject _slotPrefab;
 
-    void Awake() {
-        int[,] a = new int[2, 3];
-        Init(a);
-    }
-
     void Init(int[,] shape) {
         for (int x = 0; x < shape.GetLength(0); x++) {
             for (int y = 0; y < shape.GetLength(1); y++) {
