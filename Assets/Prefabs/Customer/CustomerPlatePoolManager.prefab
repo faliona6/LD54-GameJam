@@ -46,3 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plateAssets:
   - {fileID: 7609490520597488500, guid: 366a926b267cd98409e776548a68688c, type: 3}
+  - {fileID: 7609490520597488500, guid: 76b00092509e05842baf51faf2aa64a1, type: 3}
+  - {fileID: 7609490520597488500, guid: 84931ad3364509a4f9e8595bf00d7b4d, type: 3}
+  - {fileID: 7609490520597488500, guid: 4c101ffdf44b8d0448913f0ec502d6c6, type: 3}
+  - {fileID: 7609490520597488500, guid: 78ebc73234a29c74783a3c7e8e9432a1, type: 3}
+  - {fileID: 7609490520597488500, guid: 1ae7f5c1b6fc4ba4bab9e8c6a19a5c76, type: 3}
+  - {fileID: 7609490520597488500, guid: a2f41d9b385995449965b77b9da01d10, type: 3}
+  - {fileID: 7609490520597488500, guid: dd2aaef8f4196424ca2eeada82bb1eda, type: 3}
+  - {fileID: 7609490520597488500, guid: 491c658935b64ab4696a68f07ace7c07, type: 3}
+  - {fileID: 7609490520597488500, guid: 1b7f061d6419c2c4ca6ee21fb5ccb7a2, type: 3}

@@ -21,6 +21,7 @@ public class SlotGrid : MonoBehaviour
             {
                 if (container.matrix[x].columns[y] == 1)
                 {
+                    Debug.Log($"Slot created at: x{x} y{y}");
                     Slot slot = Instantiate(_slotPrefab, transform).GetComponent<Slot>();
                     slot.transform.localPosition = new Vector3(x, y, 0);
                     slotGrid[new Vector2Int(x, y)] = slot;
