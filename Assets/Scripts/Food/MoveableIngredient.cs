@@ -10,6 +10,8 @@ namespace Food
 
         Ingredient _ingredient;
 
+        Slot _orignalSlot;
+
         public Transform Transform => transform;
 
         void Awake() { _ingredient = GetComponent<Ingredient>(); }
@@ -41,9 +43,7 @@ namespace Food
                 // If valid new position, move to slot
                 return snapSlot.transform;
             } else { // Place in original slot
-            
-                // TODO?: return original slot transform
-                return transform;
+                return _orignalSlot.transform;
             }
         }
 
@@ -53,6 +53,7 @@ namespace Food
                 if (!slot.GetComponent<Slot>().PickUpHeld()) { // failed to pickup from slot, such as when slot is locked
                     return null;
                 }
+                _orignalSlot = slot.GetComponent<Slot>();
             }
 
             return transform;
