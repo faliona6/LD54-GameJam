@@ -3,26 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredient : MonoBehaviour
+namespace Food
 {
-    public SO_Ingredient ingredient;
-    
-    public float cookTime;
-    public bool cooked;
-    
-    Dictionary<FoodFlavors, int> flavorScore; // i.e. {Savory: 1, Sweet: 2 }
-
-    public GameObject prefab;
-
-    public List<Vector2Int> shape;
-
-    private void Start()
+    public class Ingredient : MonoBehaviour
     {
-        cookTime = ingredient.cookTime;
+        public SO_Ingredients ingredient;
+    
+        public float cookTime;
+        public bool cooked;
+    
+        Dictionary<FoodFlavors, int> flavorScore; // i.e. {Savory: 1, Sweet: 2 }
+
+        public GameObject prefab;
+
+        public List<Vector2Int> shape;
+
+        private void Start()
+        {
+            cookTime = ingredient.cookTime;
+        }
+
+        public void setCooked()
+        {
+            cooked = true;
+        }    
     }
-
-    public void setCooked()
-    {
-        cooked = true;
-    }    
 }
