@@ -20,9 +20,9 @@ public class Slot : MonoBehaviour {
         _mSlotGrid = transform.parent.GetComponent<SlotGrid>();
     }
 
-    // PlaceAndMove handles registering an Ingredient with the slot and physically moving stack's location to this Slot
-    // Slots only allow stacks of one card (for now?)
+    // Place handles registering an Ingredient with the slot
     public bool Place(Ingredient ingredient) {
+        
         if (!IsEmpty() || !canPlace) { return false; }
     
         // Set slot fields
