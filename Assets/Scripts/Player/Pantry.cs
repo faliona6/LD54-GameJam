@@ -1,8 +1,10 @@
-using CustomGrid;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using CustomGrid;
 
-[RequireComponent(typeof(SlotGrid))]
-public class PlayerInventory : MonoBehaviour {
+public class Pantry : MonoBehaviour
+{
     public Container container;
     
     public SlotGrid slotGrid;
@@ -10,4 +12,6 @@ public class PlayerInventory : MonoBehaviour {
     void Start() {
         slotGrid.Init(container);
     }
+    
+    
 }
