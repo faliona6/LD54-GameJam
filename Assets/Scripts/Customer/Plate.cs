@@ -19,9 +19,5 @@ namespace Customer
         {
 
         }
-        public override string ToString()
-        {
-            return $"Container: {container}, SlotGrid: {slotGrid}";
-        }
     }
 }

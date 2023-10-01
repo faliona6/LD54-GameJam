@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerPrefabs:
-  - {fileID: 4302379304438401842, guid: dad97a9ec414a5940b0e3748ad4bafdf, type: 3}
-  - {fileID: 4125524761383055681, guid: 7d4d45687ef8f964ea7ff7e9f3aa243f, type: 3}
-  - {fileID: -4424270985573746273, guid: 8dbd46743ed0a71438bbaf6ecaf4aae2, type: 3}
-  - {fileID: 5728698678586748491, guid: bae83cd1ce6aba841ba1bba26a74b05e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 6421033865474941867, guid: 103bcdaa6a8f0eb43ab9469a031e59ca, type: 3}
-  - {fileID: -3128039529126056722, guid: 99e4bce5b72b0094888011debeca6f81, type: 3}
-  - {fileID: 3584025064397957161, guid: 130f3c115af7f4b46bdbe2da53b157b5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4470262857322913936
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,16 +97,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plateAssets:
-  - {fileID: 7609490520597488500, guid: 366a926b267cd98409e776548a68688c, type: 3}
-  - {fileID: 7609490520597488500, guid: 76b00092509e05842baf51faf2aa64a1, type: 3}
-  - {fileID: 7609490520597488500, guid: 84931ad3364509a4f9e8595bf00d7b4d, type: 3}
-  - {fileID: 7609490520597488500, guid: 4c101ffdf44b8d0448913f0ec502d6c6, type: 3}
-  - {fileID: 7609490520597488500, guid: 78ebc73234a29c74783a3c7e8e9432a1, type: 3}
-  - {fileID: 7609490520597488500, guid: 1ae7f5c1b6fc4ba4bab9e8c6a19a5c76, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 7609490520597488500, guid: a2f41d9b385995449965b77b9da01d10, type: 3}
-  - {fileID: 7609490520597488500, guid: dd2aaef8f4196424ca2eeada82bb1eda, type: 3}
-  - {fileID: 7609490520597488500, guid: 491c658935b64ab4696a68f07ace7c07, type: 3}
-  - {fileID: 7609490520597488500, guid: 1b7f061d6419c2c4ca6ee21fb5ccb7a2, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7445917849571581894
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fb3425ab246bb409532f64f7ecbfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platePool: {fileID: 8267382182904698093}
-  customerPool: {fileID: 6253898429481219446}
+  platePool: {fileID: 8267382182904698093, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
+  customerPool: {fileID: 6253898429481219446, guid: 09c70b68e5d3afe4fa7cb652fd0dd8f7, type: 3}

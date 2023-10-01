@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabName: Plate_Box
   matrix:
-  - columns: 000000000000000000000000
-  - columns: 000000000000000000000000
-  - columns: 010000000000000000000000
+  - columns: 01000000
   center: {x: 0, y: 0}

@@ -15,6 +15,6 @@ MonoBehaviour:
   prefabName: Plate_Rectangle
   matrix:
   - columns: 000000000000000000000000
-  - columns: 000000000000000000000000
-  - columns: 010000000000000000000000
+  - columns: 010000000100000001000000
+  - columns: 010000000100000001000000
   center: {x: 0, y: 0}
