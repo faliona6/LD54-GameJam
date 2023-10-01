@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour {
     public void WonGame() {
         OnWonGame.Invoke();
     }
-    
     void LostGame() {
         OnLostGame.Invoke();
     }
