@@ -32,6 +32,13 @@ namespace Customer
             pooledPlates.RemoveAt(index); // Remove the plate from the pool to ensure it's not reused unless returned.
             return plate;
         }
+        public void ReleasePlate(Plate plate)
+        {
+            if (plate != null)
+            {
+                pooledPlates.Add(plate); // Assuming availablePlates is a list or collection storing available plates
+            }
+        }
 
         // Update is called once per frame
         void Update()

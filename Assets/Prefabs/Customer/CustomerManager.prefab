@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4236909329635433416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274546503113801937}
+  - component: {fileID: 6253898429481219446}
+  m_Layer: 0
+  m_Name: CustomerPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274546503113801937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236909329635433416}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 40730317001138036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6253898429481219446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236909329635433416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a971dcf81303a640ac93822bd521176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerPrefabs:
+  - {fileID: 4302379304438401842, guid: dad97a9ec414a5940b0e3748ad4bafdf, type: 3}
+  - {fileID: 4125524761383055681, guid: 7d4d45687ef8f964ea7ff7e9f3aa243f, type: 3}
+  - {fileID: -4424270985573746273, guid: 8dbd46743ed0a71438bbaf6ecaf4aae2, type: 3}
+  - {fileID: 5728698678586748491, guid: bae83cd1ce6aba841ba1bba26a74b05e, type: 3}
+  - {fileID: 6421033865474941867, guid: 103bcdaa6a8f0eb43ab9469a031e59ca, type: 3}
+  - {fileID: -3128039529126056722, guid: 99e4bce5b72b0094888011debeca6f81, type: 3}
+  - {fileID: 3584025064397957161, guid: 130f3c115af7f4b46bdbe2da53b157b5, type: 3}
+--- !u!1 &4470262857322913936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6804656677221281440}
+  - component: {fileID: 8267382182904698093}
+  m_Layer: 0
+  m_Name: CustomerPlatePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6804656677221281440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470262857322913936}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 0.25, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 40730317001138036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8267382182904698093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470262857322913936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29119454ff2f3e4d8d33709b1edb9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plateAssets:
+  - {fileID: 7609490520597488500, guid: 366a926b267cd98409e776548a68688c, type: 3}
+  - {fileID: 7609490520597488500, guid: 76b00092509e05842baf51faf2aa64a1, type: 3}
+  - {fileID: 7609490520597488500, guid: 84931ad3364509a4f9e8595bf00d7b4d, type: 3}
+  - {fileID: 7609490520597488500, guid: 4c101ffdf44b8d0448913f0ec502d6c6, type: 3}
+  - {fileID: 7609490520597488500, guid: 78ebc73234a29c74783a3c7e8e9432a1, type: 3}
+  - {fileID: 7609490520597488500, guid: 1ae7f5c1b6fc4ba4bab9e8c6a19a5c76, type: 3}
+  - {fileID: 7609490520597488500, guid: a2f41d9b385995449965b77b9da01d10, type: 3}
+  - {fileID: 7609490520597488500, guid: dd2aaef8f4196424ca2eeada82bb1eda, type: 3}
+  - {fileID: 7609490520597488500, guid: 491c658935b64ab4696a68f07ace7c07, type: 3}
+  - {fileID: 7609490520597488500, guid: 1b7f061d6419c2c4ca6ee21fb5ccb7a2, type: 3}
+--- !u!1 &7445917849571581894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 40730317001138036}
+  - component: {fileID: 2512023092540640835}
+  m_Layer: 0
+  m_Name: CustomerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &40730317001138036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445917849571581894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6804656677221281440}
+  - {fileID: 274546503113801937}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2512023092540640835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445917849571581894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fb3425ab246bb409532f64f7ecbfc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platePool: {fileID: 8267382182904698093}
+  customerPool: {fileID: 6253898429481219446}
