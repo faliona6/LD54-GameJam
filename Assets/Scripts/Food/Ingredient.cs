@@ -7,9 +7,9 @@ namespace Food
 {
     public class Ingredient : MonoBehaviour
     {
-        public SO_Ingredients ingredient;
+        public SO_Ingredients ingredientData;
     
-        public float cookTime;
+        public int cookTime;
         public bool cooked;
     
         Dictionary<FoodFlavors, int> flavorScore; // i.e. {Savory: 1, Sweet: 2 }

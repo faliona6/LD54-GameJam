@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Food;
 using UnityEngine;
 
 public class ShopSlot : Slot {

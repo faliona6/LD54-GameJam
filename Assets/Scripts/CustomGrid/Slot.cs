@@ -23,7 +23,12 @@ public class Slot : MonoBehaviour {
 
     // Place handles registering an Ingredient with the slot
     public bool Place(Ingredient ingredient) {
-        
+        for (int x = 0; x < ingredient.ingredientData.container.matrix.Count; x++) {
+            for (int y = 0; y < ingredient.ingredientData.container.matrix[0].columns.Count; y++) {
+                
+            }
+        }
+
         if (!IsEmpty() || !canPlace) { return false; }
     
         // Set slot fields

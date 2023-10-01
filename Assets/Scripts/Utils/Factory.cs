@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using Customer;
+using Food;
 using UnityEngine;
 
 public class Factory : MonoBehaviour {
@@ -21,7 +22,7 @@ public class Factory : MonoBehaviour {
         IngredientBase = _ingredientBase;
     }
     
-    public Ingredient CreateIngredientObj(SO_Ingredient ingredientData, Vector2 pos) {
+    public Ingredient CreateIngredientObj(SO_Ingredients ingredientData, Vector2 pos) {
         Ingredient ing = Instantiate(_plateBase, pos, Quaternion.identity).GetComponent<Ingredient>();
         ing.ingredientData = ingredientData;
 
