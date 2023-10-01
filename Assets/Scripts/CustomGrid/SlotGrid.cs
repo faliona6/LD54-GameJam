@@ -26,7 +26,7 @@ public class SlotGrid : MonoBehaviour {
         }
     }
 
-    public Slot SelectSlotRelative(Slot origin, Vector2Int relativePos) {
+    public Slot SelectSlotRelative(Vector2Int origin, Vector2Int relativePos) {
         int targetX = origin.x + relativePos.x;
         int targetY = origin.y + relativePos.y;
 
