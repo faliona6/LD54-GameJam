@@ -62,7 +62,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4330a5945c06b45959a94e0c37e760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 0}
   slotGrid: {fileID: 4240403937798884170}
+  panCount: 1
+  cookButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &4240403937798884170
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CustomGrid;
+using UnityEngine.UI;
 
-namespace Pan
+namespace Food
 {
     [RequireComponent(typeof(BoxCollider2D), typeof(Rigidbody2D))]
+    
     public class Pan : MonoBehaviour
     {
         public bool isCooking = false; // Indicates whether the pan is currently cooking.
@@ -13,13 +15,25 @@ namespace Pan
         public Container container; // Reference to the container associated with the pan.
         public List<Slot> panSlots; // Reference to the slot grid associated with the pan.
 
+        public List<Transform> knobPositions = new List<Transform>();
+        
+        [SerializeField] private Button cookButton;
+     
+        public PanManager panManager;
+        public void Start()
+        {
+            cookButton = panManager.cookButtons[panManager.panCount - 1];
+            cookButton.gameObject.SetActive(true);
+            
+            cookButton.onClick.AddListener(StartCooking);
+        }
         // Start cooking all ingredients in the pan
         public void StartCooking()
         {
             if (isCooking) return;
 
             // Start cooking.
-            isCooking = true;
+            isCooking = true;   
 
             // Get all the ingredients in your pan slot references.
             List<Ingredient> ingredientsToCook = GetIngredientsToCook();
