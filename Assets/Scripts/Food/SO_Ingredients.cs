@@ -12,7 +12,6 @@ namespace Food
         public FoodType FoodType;
         Dictionary<FoodFlavors, int> intitialFlavorScore;
         public int cookTime;
-        public int burnTime;
         public Container container;
     }
 }
