@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Food;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Customer
@@ -12,6 +14,14 @@ namespace Customer
         public Plate currentPlate; // To keep track of the plate the customer currently has.
         public Dictionary<string, int> flavors = new Dictionary<string, int>();
         public Dictionary<string, int> ingredientTypes = new Dictionary<string, int>();
+
+        public void CheckIngredients() {
+            Dictionary<string, int> curFlavors = new Dictionary<string, int>();
+            List<Ingredient> ingredients = currentPlate.slotGrid.GetIngredients();
+            foreach (Ingredient ingredient in ingredients) {
+                // curFlavors[ingredient.]
+            }
+        }
 
         void OnDestroy()
         {
@@ -37,10 +47,10 @@ namespace Customer
             RequestPlate();
             GenerateFlavors();
             GenerateIngredientTypes();
-        }
 
-        void Update() {
-
+            foreach (KeyValuePair<Vector2Int, Slot> slot in currentPlate.slotGrid.slotGrid) {
+                slot.Value.OnSlotPlaced.AddListener(CheckIngredients);
+            }
         }
 
         // Method to request a random plate from the pool.

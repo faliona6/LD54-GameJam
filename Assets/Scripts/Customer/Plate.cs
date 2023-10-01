@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CustomGrid;
+using Food;
 
 namespace Customer
 {
@@ -15,7 +16,7 @@ namespace Customer
             slotGrid.Init(container);
         }
 
-        public void Scoring()
+        public void Score(List<Ingredient> ingredients)
         {
 
         }

@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Customer;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -12,16 +13,14 @@ public class GameManager : MonoBehaviour {
 
     public Canvas WorldCanvas => _worldCanvas;
     [SerializeField] Canvas _worldCanvas;
+    
+    public CustomerManager CustomerManager => _customerManager;
+    [SerializeField] CustomerManager _customerManager;
 
-    // Time Vars
-    public int day = 1;
-    
-    public int TimeScale => _timeScale;
-    [SerializeField] int _timeScale;
-    [SerializeField] int dayDuration = 1;
-    [SerializeField] int nightDuration = 1;
-    [SerializeField] float curTime;
-    
+    // Level Vars
+    public List<SO_Level> levels = new List<SO_Level>();
+    public int curDay = 0;
+
     // Money Vars
     public int Money => _money;
     [SerializeField] int _money;
@@ -40,6 +39,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        
+        
+        
         StartCoroutine(GameLoop());
 
         // Debug
@@ -47,32 +49,14 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator GameLoop() {
-        while (true) {
-            yield return StartCoroutine(TimeCycle(dayDuration, OnEndDay));
-            yield return StartCoroutine(TimeCycle(nightDuration, OnEndNight));
-            
-            day++;
-            // UIManager.Instance.UpdateDayText(day);
-        }
-    }
-
-    IEnumerator TimeCycle(float duration, UnityEvent endEvent) {
-        while (curTime < duration) {
-            curTime += Time.deltaTime * _timeScale;
-            // UIManager.Instance.UpdateTimeProgressBar(curTime / duration);
-            yield return null;
-        }
-
-        curTime = 0;
-        // UIManager.Instance.UpdateTimeProgressBar(curTime / duration);
         
-        endEvent.Invoke();
     }
-    void EndDay() {
-        curTime = dayDuration;
-    }
-    void EndNight() {
-        curTime = nightDuration;
+
+    void Day(int curDay) {
+        int numCustomers = levels[curDay].numCustomers;
+        for (int i = 0; i < numCustomers; i++) {
+            
+        }
     }
     
     public void WonGame() {

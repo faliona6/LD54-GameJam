@@ -15,8 +15,8 @@ public class Slot : MonoBehaviour {
     public SlotGrid SlotGrid => SlotGrid;
     SlotGrid _mSlotGrid;
 
-    static UnityEvent OnSlotPlaced = new UnityEvent();
-    static UnityEvent OnSlotPickedUp = new UnityEvent();
+    public UnityEvent OnSlotPlaced = new UnityEvent();
+    public UnityEvent OnSlotPickedUp = new UnityEvent();
 
     void Awake() { _mSlotGrid = transform.parent.GetComponent<SlotGrid>(); }
 

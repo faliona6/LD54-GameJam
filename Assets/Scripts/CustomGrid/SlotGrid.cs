@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CustomGrid;
+using Food;
 using UnityEngine;
 
 public class SlotGrid : MonoBehaviour {
@@ -44,6 +45,20 @@ public class SlotGrid : MonoBehaviour {
         }
 
         return slotGrid[pos];
+    }
+
+    public List<Ingredient> GetIngredients() {
+        List<Ingredient> ingredients = new List<Ingredient>();
+        foreach (KeyValuePair<Vector2Int, Slot> slot in slotGrid)
+        {
+            // Check if the slot's ingredient is not already in the list before adding.
+            if (slot.Value.Ingredient != null && !ingredients.Contains(slot.Value.Ingredient))
+            {
+                ingredients.Add(slot.Value.Ingredient);
+            }
+        }
+
+        return ingredients;
     }
 
     public bool IsInBounds(int x, int y) { return slotGrid.ContainsKey(new Vector2Int(x, y)); }
