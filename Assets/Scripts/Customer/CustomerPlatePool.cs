@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CustomGrid;
 
 namespace Customer
 {
     public class CustomerPlatePool : MonoBehaviour
     {
-        [SerializeField] public Plate[] plateAssets; // Drag your Plate ScriptableObjects here.
-        private List<Plate> pooledPlates = new List<Plate>();
+        [SerializeField] public Container[] plateSO; // Drag your Plate ScriptableObjects here.
+        public Plate PlatePrefab;
+        private List<Container> pooledPlates = new List<Container>();
 
         // Start is called before the first frame update
         void Start()
         {
             // Initialize the pool with plates from the assets list.
-            for (int i = 0; i < plateAssets.Length; i++)
+            for (int i = 0; i < plateSO.Length; i++)
             {
-                pooledPlates.Add(plateAssets[i]);
+                pooledPlates.Add(plateSO[i]);
             }
         }
 
@@ -28,15 +30,17 @@ namespace Customer
             }
 
             int index = Random.Range(0, pooledPlates.Count);
-            Plate plate = pooledPlates[index];
+            Container container = pooledPlates[index];
             pooledPlates.RemoveAt(index); // Remove the plate from the pool to ensure it's not reused unless returned.
+            Plate plate = Instantiate(PlatePrefab);
+            plate.container = container;
             return plate;
         }
         public void ReleasePlate(Plate plate)
         {
             if (plate != null)
             {
-                pooledPlates.Add(plate); // Assuming availablePlates is a list or collection storing available plates
+                pooledPlates.Add(plate.container); // Assuming availablePlates is a list or collection storing available plates
             }
         }
 
