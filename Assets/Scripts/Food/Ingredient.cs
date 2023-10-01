@@ -18,10 +18,15 @@ namespace Food
 
         public List<Vector2Int> shape;
 
-        private void Start()
-        {
-            cookTime = ingredient.cookTime;
-        }
+    private void Start()
+    {
+        cookTime = ingredientData.cookTime;
+    }
+
+    void Copy(Ingredient ingredient) {
+        ingredientData = ingredient.ingredientData;
+        Start();
+    }
 
         public void setCooked()
         {

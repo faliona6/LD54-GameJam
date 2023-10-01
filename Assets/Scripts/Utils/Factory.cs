@@ -2,9 +2,11 @@ using System.ComponentModel;
 using Customer;
 using UnityEngine;
 
-public class PlateFactory : MonoBehaviour {
-    public static PlateFactory Instance { get; private set; }
+public class Factory : MonoBehaviour {
+    public static Factory Instance { get; private set; }
 
+    public GameObject _ingredientBase;
+    public static GameObject IngredientBase { get; private set; }
     public GameObject _plateBase;
     public static GameObject PlateBase { get; private set; }
 
@@ -16,6 +18,21 @@ public class PlateFactory : MonoBehaviour {
         }
 
         PlateBase = _plateBase;
+        IngredientBase = _ingredientBase;
+    }
+    
+    public Ingredient CreateIngredientObj(SO_Ingredient ingredientData, Vector2 pos) {
+        Ingredient ing = Instantiate(_plateBase, pos, Quaternion.identity).GetComponent<Ingredient>();
+        ing.ingredientData = ingredientData;
+
+        return ing;
+    }
+    
+    public Ingredient CreateIngredientObj(Ingredient ingredientData, Vector2 pos) {
+        Ingredient ing = Instantiate(_plateBase, pos, Quaternion.identity).GetComponent<Ingredient>();
+        ing = ingredientData;
+
+        return ing;
     }
     
     // TODO: wherever (prob customer generator?) stores possible plate containers and calls this func to create Plate GameObject
