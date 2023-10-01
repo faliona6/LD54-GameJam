@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2358b0f9846104a8692d783554e61b, type: 3}
   m_Name: Plate_Plus
   m_EditorClassIdentifier: 
-  prefabName: Plate_Box
+  prefabName: Plate_Plus
   matrix:
-  - columns: 000000000000000000000000
-  - columns: 000000000000000000000000
-  - columns: 010000000000000000000000
+  - columns: 000000000100000000000000
+  - columns: 010000000100000001000000
+  - columns: 000000000100000000000000
   center: {x: 0, y: 0}

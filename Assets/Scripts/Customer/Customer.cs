@@ -8,7 +8,7 @@ namespace Customer
     {
         public CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
 
-        public Plate currentPlatePrefab; // To keep track of the plate the customer currently has.
+        public Plate currentPlateObj; // To keep track of the plate the customer currently has.
         public Plate currentPlate; // To keep track of the plate the customer currently has.
         public Dictionary<string, int> flavors = new Dictionary<string, int>();
         public Dictionary<string, int> ingredientTypes = new Dictionary<string, int>();
@@ -18,8 +18,8 @@ namespace Customer
             // Release the plate back to the pool
             if (platePool != null && currentPlate != null)
             {
-                platePool.ReleasePlate(currentPlatePrefab);
-                currentPlatePrefab = null;
+                platePool.ReleasePlate(currentPlateObj);
+                currentPlateObj = null;
             }
 
             // Destroy the current plate GameObject if it exists
@@ -48,10 +48,9 @@ namespace Customer
         {
             if (platePool != null)
             {
-                currentPlatePrefab = platePool.GetRandomPlate();
-                if (currentPlatePrefab != null)
+                currentPlateObj = platePool.GetRandomPlate();
+                if (currentPlateObj != null)
                 {
-                    Plate currentPlateObj = Instantiate(currentPlatePrefab);
                     currentPlate = currentPlateObj.GetComponent<Plate>();
                 }
                 else
