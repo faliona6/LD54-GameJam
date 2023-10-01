@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4470262857322913936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6804656677221281440}
+  - component: {fileID: 8267382182904698093}
+  m_Layer: 0
+  m_Name: CustomerPlatePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6804656677221281440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470262857322913936}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 0.25, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8267382182904698093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470262857322913936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29119454ff2f3e4d8d33709b1edb9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plateAssets:
+  - {fileID: 7609490520597488500, guid: 366a926b267cd98409e776548a68688c, type: 3}
+  - {fileID: 7609490520597488500, guid: 76b00092509e05842baf51faf2aa64a1, type: 3}
+  - {fileID: 7609490520597488500, guid: 84931ad3364509a4f9e8595bf00d7b4d, type: 3}
+  - {fileID: 7609490520597488500, guid: 4c101ffdf44b8d0448913f0ec502d6c6, type: 3}
+  - {fileID: 7609490520597488500, guid: 78ebc73234a29c74783a3c7e8e9432a1, type: 3}
+  - {fileID: 7609490520597488500, guid: 1ae7f5c1b6fc4ba4bab9e8c6a19a5c76, type: 3}
+  - {fileID: 7609490520597488500, guid: a2f41d9b385995449965b77b9da01d10, type: 3}
+  - {fileID: 7609490520597488500, guid: dd2aaef8f4196424ca2eeada82bb1eda, type: 3}
+  - {fileID: 7609490520597488500, guid: 491c658935b64ab4696a68f07ace7c07, type: 3}
+  - {fileID: 7609490520597488500, guid: 1b7f061d6419c2c4ca6ee21fb5ccb7a2, type: 3}

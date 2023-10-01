@@ -8,13 +8,33 @@ namespace Customer
     {
         public CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
 
+        public Plate currentPlatePrefab; // To keep track of the plate the customer currently has.
         public Plate currentPlate; // To keep track of the plate the customer currently has.
         public Dictionary<string, int> flavors = new Dictionary<string, int>();
         public Dictionary<string, int> ingredientTypes = new Dictionary<string, int>();
 
+        void OnDestroy()
+        {
+            // Release the plate back to the pool
+            if (platePool != null && currentPlate != null)
+            {
+                platePool.ReleasePlate(currentPlatePrefab);
+                currentPlatePrefab = null;
+            }
+
+            // Destroy the current plate GameObject if it exists
+            if (currentPlate != null)
+            {
+                Debug.Log("Destroying Plate");
+                Destroy(currentPlate.gameObject);
+                currentPlate = null;
+            }
+        }
+
         // Start is called before the first frame update
         void Start()
         {
+            RequestPlate();
             GenerateFlavors();
             GenerateIngredientTypes();
         }
@@ -28,11 +48,11 @@ namespace Customer
         {
             if (platePool != null)
             {
-                currentPlate = platePool.GetRandomPlate();
-                if (currentPlate != null)
+                currentPlatePrefab = platePool.GetRandomPlate();
+                if (currentPlatePrefab != null)
                 {
-                    Debug.Log($"Customer got a plate with prefab named: {currentPlate.container.prefabName}");
-                    Instantiate(currentPlate, new Vector3(0, 0, 0), Quaternion.identity);
+                    Plate currentPlateObj = Instantiate(currentPlatePrefab);
+                    currentPlate = currentPlateObj.GetComponent<Plate>();
                 }
                 else
                 {
@@ -44,6 +64,7 @@ namespace Customer
                 Debug.LogError("Plate Pool not assigned to the customer.");
             }
         }
+
         public void GenerateFlavors()
         {
             //string flavor = FlavorsManager.Instance.GetRandomFlavor();
