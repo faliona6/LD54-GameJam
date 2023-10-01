@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using Food;
 
 public class Slot : MonoBehaviour {
     public int x, y;
