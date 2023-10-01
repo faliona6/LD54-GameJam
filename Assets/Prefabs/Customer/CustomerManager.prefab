@@ -45,13 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4302379304438401842, guid: dad97a9ec414a5940b0e3748ad4bafdf, type: 3}
+  - {fileID: 4125524761383055681, guid: 7d4d45687ef8f964ea7ff7e9f3aa243f, type: 3}
+  - {fileID: -4424270985573746273, guid: 8dbd46743ed0a71438bbaf6ecaf4aae2, type: 3}
+  - {fileID: 5728698678586748491, guid: bae83cd1ce6aba841ba1bba26a74b05e, type: 3}
   - {fileID: 6421033865474941867, guid: 103bcdaa6a8f0eb43ab9469a031e59ca, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -3128039529126056722, guid: 99e4bce5b72b0094888011debeca6f81, type: 3}
+  - {fileID: 3584025064397957161, guid: 130f3c115af7f4b46bdbe2da53b157b5, type: 3}
 --- !u!1 &4470262857322913936
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,17 +96,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29119454ff2f3e4d8d33709b1edb9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plateAssets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 7609490520597488500, guid: a2f41d9b385995449965b77b9da01d10, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  plateSO:
+  - {fileID: 11400000, guid: 68cf3d0a9245a3d408791270dbd3fe96, type: 2}
+  - {fileID: 11400000, guid: a3b8c1fc3a77dd145b95153f1f4b111d, type: 2}
+  - {fileID: 11400000, guid: f46ae6912d7c111468363ae1b94abf4a, type: 2}
+  - {fileID: 11400000, guid: 4c84fb19c1c77d2459dc3d72fcad826f, type: 2}
+  - {fileID: 11400000, guid: 33ec79a543f27c1439ec9c30c8d85612, type: 2}
+  - {fileID: 11400000, guid: 74d5200fda67f62438d04018b7513e2a, type: 2}
+  - {fileID: 11400000, guid: ec25c55ed5cbe604598ab03396a81a5c, type: 2}
+  - {fileID: 11400000, guid: ea10c113d7a88fa48a2e71a376ad44d3, type: 2}
+  - {fileID: 11400000, guid: 8a606dc1b9b87b4429089e74eed8f26e, type: 2}
+  - {fileID: 11400000, guid: e950f6e7de562da43b8d745c0ecba920, type: 2}
+  PlatePrefab: {fileID: 7609490520597488500, guid: c4019f16cd7c48e459b286b009f5330e, type: 3}
 --- !u!1 &7445917849571581894
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,5 +154,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fb3425ab246bb409532f64f7ecbfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platePool: {fileID: 8267382182904698093, guid: 6f72629c79dcdd44daecf7ae1645754b, type: 3}
-  customerPool: {fileID: 6253898429481219446, guid: 09c70b68e5d3afe4fa7cb652fd0dd8f7, type: 3}
+  platePool: {fileID: 8267382182904698093}
+  customerPool: {fileID: 6253898429481219446}
