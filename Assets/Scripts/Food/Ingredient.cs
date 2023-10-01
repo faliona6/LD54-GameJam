@@ -3,18 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredient : MonoBehaviour
+namespace Food
 {
-    public SO_Ingredient ingredientData;
+    public class Ingredient : MonoBehaviour
+    {
+        public SO_Ingredients ingredient;
     
-    public float cookTime;
-    public bool cooked;
+        public float cookTime;
+        public bool cooked;
     
-    Dictionary<FoodFlavors, int> flavorScore; // i.e. {Savory: 1, Sweet: 2 }
+        Dictionary<FoodFlavors, int> flavorScore; // i.e. {Savory: 1, Sweet: 2 }
 
-    public GameObject prefab;
+        public GameObject prefab;
 
-    public List<Vector2Int> shape;
+        public List<Vector2Int> shape;
 
     private void Start()
     {
@@ -26,8 +28,9 @@ public class Ingredient : MonoBehaviour
         Start();
     }
 
-    public void setCooked()
-    {
-        cooked = true;
-    }    
+        public void setCooked()
+        {
+            cooked = true;
+        }    
+    }
 }
