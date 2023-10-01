@@ -12,6 +12,7 @@ namespace Food
         public FoodType FoodType;
         Dictionary<FoodFlavors, int> intitialFlavorScore;
         public int cookTime;
-        public Container container;
+        public List<Vector2Int> shape;
+        public Vector2Int center;
     }
 }

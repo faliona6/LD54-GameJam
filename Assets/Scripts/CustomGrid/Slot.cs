@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using Food;
+using UnityEngine.UIElements;
 
 public class Slot : MonoBehaviour {
     public int x, y;
@@ -17,53 +18,56 @@ public class Slot : MonoBehaviour {
     static UnityEvent OnSlotPlaced = new UnityEvent();
     static UnityEvent OnSlotPickedUp = new UnityEvent();
 
-    void Awake() {
-        _mSlotGrid = transform.parent.GetComponent<SlotGrid>();
-    }
+    void Awake() { _mSlotGrid = transform.parent.GetComponent<SlotGrid>(); }
 
     // Place handles registering an Ingredient with the slot
     public bool Place(Ingredient ingredient) {
-        for (int x = 0; x < ingredient.ingredientData.container.matrix.Count; x++) {
-            for (int y = 0; y < ingredient.ingredientData.container.matrix[0].columns.Count; y++) {
-                
+        foreach (Vector2Int offset in ingredient.shape) { // should contain center
+            Slot s = _mSlotGrid.SelectSlotRelative(new Vector2Int(x, y), offset);
+            if (!s || !s.IsEmpty() || !s.canPlace) {
+                return false;
             }
         }
 
-        if (!IsEmpty() || !canPlace) { return false; }
-    
+        // if (!IsEmpty() || !canPlace) { return false; }
+
         // Set slot fields
-        _ingredient = ingredient;
-    
+        foreach (Vector2Int offset in ingredient.shape) {
+            Slot s = _mSlotGrid.SelectSlotRelative(new Vector2Int(x, y), offset);
+            s._ingredient = ingredient;
+        }
+
         // Set ingredient fields
         ingredient.transform.SetParent(transform);
         // foreach (Vector2Int pos in _ingredient.shape) {
         //     
         // }
-        
+
         OnSlotPlaced.Invoke();
-    
+
         return true;
     }
-    
+
     public virtual Transform PickUpHeld() {
         if (IsEmpty() || !canPickUp) return null;
-        
+
         // Set ingredient fields
         _ingredient.transform.SetParent(null);
         // foreach (Vector2Int pos in _ingredient.shape) {
         //     
         // }
-    
+
         // Set slot fields
         Ingredient ing = _ingredient;
-        _ingredient = null;
-        
+        foreach (Vector2Int offset in ing.shape) {
+            Slot s = _mSlotGrid.SelectSlotRelative(new Vector2Int(x, y), offset);
+            s._ingredient = null;
+        }
+
         OnSlotPickedUp.Invoke();
-        
+
         return ing.transform;
     }
-    
-    public bool IsEmpty() {
-        return _ingredient == null;
-    }
+
+    public bool IsEmpty() { return _ingredient == null; }
 }
