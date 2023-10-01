@@ -8,7 +8,6 @@ public class Slot : MonoBehaviour {
     public int x, y;
     public bool canPlace = true;
     public bool canPickUp = true;
-
     public Ingredient Ingredient => _ingredient;
     [SerializeField] Ingredient _ingredient;
 
@@ -28,9 +27,6 @@ public class Slot : MonoBehaviour {
                 return false;
             }
         }
-
-        // if (!IsEmpty() || !canPlace) { return false; }
-
         // Set slot fields
         foreach (Vector2Int offset in ingredient.shape) {
             Slot s = _mSlotGrid.SelectSlotRelative(new Vector2Int(x, y), offset);
