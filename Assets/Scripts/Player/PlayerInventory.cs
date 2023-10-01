@@ -10,4 +10,8 @@ public class PlayerInventory : MonoBehaviour {
     void Start() {
         slotGrid.Init(container);
     }
+
+    void Init() {
+        // TODO: fill with initial subset of InfiniteIngredients
+    }
 }

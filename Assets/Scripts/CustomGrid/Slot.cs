@@ -39,7 +39,7 @@ public class Slot : MonoBehaviour {
         return true;
     }
     
-    public Transform PickUpHeld() {
+    public virtual Transform PickUpHeld() {
         if (IsEmpty() || !canPickUp) return null;
         
         // Set ingredient fields

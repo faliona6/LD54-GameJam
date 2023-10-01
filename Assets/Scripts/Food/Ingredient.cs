@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    public SO_Ingredient ingredient;
+    public SO_Ingredient ingredientData;
     
     public float cookTime;
     public bool cooked;
@@ -18,7 +18,12 @@ public class Ingredient : MonoBehaviour
 
     private void Start()
     {
-        cookTime = ingredient.cookTime;
+        cookTime = ingredientData.cookTime;
+    }
+
+    void Copy(Ingredient ingredient) {
+        ingredientData = ingredient.ingredientData;
+        Start();
     }
 
     public void setCooked()
