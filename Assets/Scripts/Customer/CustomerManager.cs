@@ -38,8 +38,8 @@ namespace Customer {
             CallNextCustomers();
         }
 
-        public void PlateSuccess() {
-            // TODO: add plate completion reward
+        public void PlateSuccess(int money) {
+            GameManager.Instance.ModifyMoney(money);
             CallNextCustomers();
         }
         public void PlateFail() {

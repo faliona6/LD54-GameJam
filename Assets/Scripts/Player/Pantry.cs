@@ -28,6 +28,7 @@ public class Pantry : MonoBehaviour
     }
 
     public void SpawnIngredient(Ingredient ingredient) {
+        GameManager.Instance.ModifyMoney(-ingredient.ingredientData.cost);
         Ingredient ing = Instantiate(ingredient.gameObject, transform.position, Quaternion.identity).GetComponent<Ingredient>();
         Player.Instance.PlaceInHand(ing.gameObject);
     }

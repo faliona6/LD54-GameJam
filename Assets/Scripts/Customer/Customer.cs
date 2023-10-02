@@ -24,7 +24,7 @@ namespace Customer {
         
         CustomerPlatePool platePool;
 
-        public UnityEvent OnPlateSuccess = new();
+        public UnityEvent<int> OnPlateSuccess = new();
         public UnityEvent OnPlateFail = new();
         
         private void Awake()
@@ -62,7 +62,7 @@ namespace Customer {
             if (totalSalty >= flavorThreshold[FoodFlavors.Salty] &&
                 totalSweet >= flavorThreshold[FoodFlavors.Sweet] &&
                 totalSour >= flavorThreshold[FoodFlavors.Sour]) {
-                OnPlateSuccess.Invoke();
+                OnPlateSuccess.Invoke(currentPlate.GetComponent<Plate>().slotGrid.slotGrid.Count * 5);
             }
         }
 

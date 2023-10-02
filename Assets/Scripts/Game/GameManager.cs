@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Customer;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour {
     // Money Vars
     public int Money => _money;
     [SerializeField] int _money;
+    [SerializeField] TextMeshProUGUI _moneyText;
 
     public static UnityEvent OnEndDay = new UnityEvent();
     public static UnityEvent OnEndNight = new UnityEvent();
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour {
         Day(curDay);
 
         // Debug
-        // ModifyMoney(25);
+        ModifyMoney(200);
     }
 
     void Day(int curDay) {
@@ -74,15 +76,12 @@ public class GameManager : MonoBehaviour {
 
     /**********************   Money Funcs   *********************/
 
-    // public bool ModifyMoney(int value) {
-    //     int newMoney = _money + value;
-    //     if (newMoney < 0) {
-    //         return false;
-    //     }
-    //
-    //     _money = newMoney;
-    //     EventManager.Invoke(gameObject, EventID.ModifyMoney, new DeltaArgs {newValue = _money, deltaValue = value});
-    //
-    //     return true;
-    // }
+    public bool ModifyMoney(int value) {
+        int newMoney = _money + value;
+    
+        _money = newMoney;
+        _moneyText.text = _money.ToString();
+    
+        return true;
+    }
 }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   FoodType: 0
-  salty: 5
-  sweet: 5
-  sour: 5
+  salty: 1
+  sweet: 1
+  sour: 1
   cookTime: 0
   shape:
   - {x: 0, y: 0}
@@ -24,3 +24,4 @@ MonoBehaviour:
   center: {x: 0, y: 0}
   uncookedSprite: {fileID: 0}
   cookedSprite: {fileID: 0}
+  cost: 5

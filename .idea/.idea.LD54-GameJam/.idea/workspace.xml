@@ -84,30 +84,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Customer/Customer.cs</url>
-          <line>53</line>
-          <properties documentPath="C:\Users\bryan\Documents\1_Unity\LD54-GameJam\Assets\Scripts\Customer\Customer.cs" initialLine="56" containingFunctionPresentation="method 'CheckIngredients'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs</url>
+          <line>79</line>
+          <properties documentPath="C:\Users\bryan\Documents\1_Unity\LD54-GameJam\Assets\Scripts\Game\GameManager.cs" initialLine="79" containingFunctionPresentation="method 'ModifyMoney'">
             <startOffsets>
-              <option value="1816" />
+              <option value="2267" />
             </startOffsets>
             <endOffsets>
-              <option value="1866" />
+              <option value="2297" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Customer/Customer.cs</url>
-          <line>61</line>
-          <properties documentPath="C:\Users\bryan\Documents\1_Unity\LD54-GameJam\Assets\Scripts\Customer\Customer.cs" initialLine="61" containingFunctionPresentation="method 'CheckIngredients'">
-            <startOffsets>
-              <option value="2202" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2389" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

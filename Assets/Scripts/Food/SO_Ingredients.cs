@@ -20,5 +20,7 @@ namespace Food
         
         public Sprite uncookedSprite;
         public Sprite cookedSprite;
+
+        public int cost;
     }
 }

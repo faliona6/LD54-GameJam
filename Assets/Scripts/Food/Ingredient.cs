@@ -19,6 +19,8 @@ namespace Food {
         
         [HideInInspector] public List<Vector2Int> shape;
         [HideInInspector] public Vector2Int center;
+        
+        [HideInInspector] public int cost;
 
         SpriteRenderer sr;
 
@@ -41,6 +43,8 @@ namespace Food {
                 salty = ingredientData.salty;
                 sweet = ingredientData.sweet;
                 sour = ingredientData.sour;
+
+                cost = ingredientData.cost;
             } 
         }
 

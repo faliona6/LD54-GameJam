@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Egg
   FoodType: 2
-  salty: 5
-  sweet: 5
-  sour: 5
+  salty: 1
+  sweet: 1
+  sour: 1
   cookTime: 4
   shape:
   - {x: 0, y: 0}
   center: {x: 0, y: 0}
   uncookedSprite: {fileID: 21300000, guid: fc203350a078f5b4a9031c348e47fea6, type: 3}
   cookedSprite: {fileID: 21300000, guid: 4a3af691423a0de44a8549373d85334c, type: 3}
+  cost: 5

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sausage
   FoodType: 0
-  salty: 5
-  sweet: 5
-  sour: 5
+  salty: 3
+  sweet: 3
+  sour: 3
   cookTime: 7
   shape:
   - {x: 0, y: 0}
@@ -25,3 +25,4 @@ MonoBehaviour:
   center: {x: 0, y: 0}
   uncookedSprite: {fileID: 21300000, guid: b4d67318e6994f54298c84eccc3d740a, type: 3}
   cookedSprite: {fileID: 21300000, guid: 360cdb67a8e58a94fbbd76590a5d2d4b, type: 3}
+  cost: 5
