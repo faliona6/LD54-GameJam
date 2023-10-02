@@ -4,7 +4,8 @@ using Food;
 using UnityEngine;
 
 public class Factory : MonoBehaviour {
-    public static Factory Instance { get; private set; }
+    public static Factory Instance => _instance;
+    static Factory _instance;
 
     public GameObject _ingredientBase;
     public static GameObject IngredientBase { get; private set; }
@@ -12,10 +13,10 @@ public class Factory : MonoBehaviour {
     public static GameObject PlateBase { get; private set; }
 
     void Awake() {
-        if (Instance != null && Instance != this) {
+        if (_instance != null && _instance != this) {
             Destroy(gameObject);
         } else {
-            Instance = this;
+            _instance = this;
         }
 
         PlateBase = _plateBase;
@@ -23,14 +24,14 @@ public class Factory : MonoBehaviour {
     }
     
     public Ingredient CreateIngredientObj(SO_Ingredients ingredientData, Vector2 pos) {
-        Ingredient ing = Instantiate(_plateBase, pos, Quaternion.identity).GetComponent<Ingredient>();
+        Ingredient ing = Instantiate(_ingredientBase, pos, Quaternion.identity).GetComponent<Ingredient>();
         ing.ingredientData = ingredientData;
 
         return ing;
     }
     
     public Ingredient CreateIngredientObj(Ingredient ingredient, Vector2 pos) {
-        Ingredient ing = Instantiate(_plateBase, pos, Quaternion.identity).GetComponent<Ingredient>();
+        Ingredient ing = Instantiate(_ingredientBase, pos, Quaternion.identity).GetComponent<Ingredient>();
         ing.ingredientData = ingredient.ingredientData;
 
         return ing;

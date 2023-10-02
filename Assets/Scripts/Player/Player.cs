@@ -63,18 +63,8 @@ public class Player : MonoBehaviour {
         }
     }
     
-    // public void SpawnInHand(GameObject obj) {
-    //     _heldMoveable = obj.GetComponent<IMoveable>();
-    //     StartCoroutine(FollowMouse(moveableTrans));
-    //     
-    //     
-    //     
-    //     Factory.Instance.CreateIngredientObj()
-    //     
-    //     Transform moveableTrans = moveable.PickUp();
-    //     if (moveableTrans) {
-    //         _heldMoveable = moveable;
-    //         StartCoroutine(FollowMouse(moveableTrans));
-    //     }
-    // }
+    public void PlaceInHand(GameObject obj) {
+        _heldMoveable = obj.GetComponent<IMoveable>();
+        StartCoroutine(FollowMouse(_heldMoveable.Transform));
+    }
 }
