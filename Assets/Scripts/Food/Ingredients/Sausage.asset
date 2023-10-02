@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sausage
   FoodType: 0
-  salty: 2
-  sweet: 0
-  sour: 0
+  salty: 5
+  sweet: 5
+  sour: 5
   cookTime: 7
   shape:
   - {x: 0, y: 0}
