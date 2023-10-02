@@ -1354,11 +1354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3145400479862354374, guid: ce8bbc815d5692f4bba18ede8a97e797, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 129
+      value: -703
       objectReference: {fileID: 0}
     - target: {fileID: 3145400479862354374, guid: ce8bbc815d5692f4bba18ede8a97e797, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 3145400479862354374, guid: ce8bbc815d5692f4bba18ede8a97e797, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1375,6 +1375,10 @@ PrefabInstance:
     - target: {fileID: 8585491416974974404, guid: ce8bbc815d5692f4bba18ede8a97e797, type: 3}
       propertyPath: m_Name
       value: ButtonGeneric_Round
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214841659606276278, guid: ce8bbc815d5692f4bba18ede8a97e797, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

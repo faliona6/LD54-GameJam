@@ -42,10 +42,11 @@ namespace Food
             if (snapSlot && snapSlot.Place(_ingredient)) { // Try placing in slot grid
                 // If valid new position, move to slot
                 return snapSlot.transform;
-            } 
-            
-            // Place in original slot
-            return _orignalSlot.transform;
+            }
+
+            return _orignalSlot == null ? transform :
+                // Place in original slot
+                _orignalSlot.transform;
         }
 
         public Transform PickUp() {
