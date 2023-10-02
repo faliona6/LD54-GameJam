@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2358b0f9846104a8692d783554e61b, type: 3}
   m_Name: Sausage
   m_EditorClassIdentifier: 
-  prefabName: Egg
+  prefabName: Sausage
   matrix:
-  - columns: 01000000
+  - columns: 0100000001000000
   center: {x: 0, y: 0}

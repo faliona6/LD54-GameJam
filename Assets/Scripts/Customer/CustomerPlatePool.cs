@@ -8,7 +8,7 @@ namespace Customer
     public class CustomerPlatePool : MonoBehaviour
     {
         [SerializeField] public Container[] plateSO; // Drag your Plate ScriptableObjects here.
-        public Plate PlatePrefab;
+        public GameObject platePrefab;
         private List<Container> pooledPlates = new List<Container>();
 
         // Start is called before the first frame update
@@ -21,7 +21,7 @@ namespace Customer
             }
         }
 
-        public Plate GetRandomPlate()
+        public GameObject GetRandomPlate()
         {
             if (pooledPlates.Count == 0)
             {
@@ -32,15 +32,15 @@ namespace Customer
             int index = Random.Range(0, pooledPlates.Count);
             Container container = pooledPlates[index];
             pooledPlates.RemoveAt(index); // Remove the plate from the pool to ensure it's not reused unless returned.
-            Plate plate = Instantiate(PlatePrefab);
-            plate.container = container;
+            GameObject plate = Instantiate(platePrefab);
+            plate.GetComponent<Plate>().container = container;
             return plate;
         }
-        public void ReleasePlate(Plate plate)
+        public void ReleasePlate(GameObject plate)
         {
             if (plate != null)
             {
-                pooledPlates.Add(plate.container); // Assuming availablePlates is a list or collection storing available plates
+                pooledPlates.Add(plate.GetComponent<Plate>().container); // Assuming availablePlates is a list or collection storing available plates
             }
         }
 
