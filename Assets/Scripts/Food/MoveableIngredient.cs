@@ -16,6 +16,8 @@ namespace Food
 
         Slot _orignalSlot;
 
+        public bool isLocked = false;
+
         public Transform Transform => transform;
 
         void Awake() { _ingredient = GetComponent<Ingredient>(); }
@@ -54,8 +56,9 @@ namespace Food
 
         public Transform PickUp() {
             Transform slot = transform.parent;
+
             if (slot != null) {
-                if (!slot.GetComponent<Slot>().PickUpHeld()) { // failed to pickup from slot, such as when slot is locked
+                if (isLocked || !slot.GetComponent<Slot>().PickUpHeld()) { // failed to pickup from slot, such as when slot is locked
                     return null;
                 }
                 _orignalSlot = slot.GetComponent<Slot>();
