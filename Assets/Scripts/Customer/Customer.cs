@@ -62,8 +62,6 @@ namespace Customer {
                 totalSweet >= flavorThreshold[FoodFlavors.Sweet] &&
                 totalSour >= flavorThreshold[FoodFlavors.Sour]) {
                 OnPlateSuccess.Invoke();
-            } else {
-                OnPlateFail.Invoke();
             }
         }
 
