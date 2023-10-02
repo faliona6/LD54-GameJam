@@ -11,19 +11,25 @@ namespace Customer {
     public class Customer : MonoBehaviour {
         public GameObject currentPlate; // To keep track of the plate the customer currently has.
         [SerializeField] private GameObject timerPrefab;
+        [SerializeField] private GameObject plateBubble;
 
         public Dictionary<FoodFlavors, int> flavorThreshold = new Dictionary<FoodFlavors, int>();
         public Dictionary<FoodType, int> ingredientTypesThreshold = new Dictionary<FoodType, int>();
+        public bool isActive = false;
         
         CustomerPlatePool platePool;
 
-        public UnityEvent OnPlateSuccess = new UnityEvent();
-        public UnityEvent OnPlateFail = new UnityEvent();
+        public UnityEvent OnPlateSuccess = new();
+        public UnityEvent OnPlateFail = new();
+        
+        private void Awake()
+        {
+            GameManager.Instance.CustomerManager.OnCustomersChanged += HandleCustomersChanged;
+        }
 
         // Start is called before the first frame update
         void Start() {
             platePool = GameManager.Instance.CustomerManager.platePool;
-            
             RequestPlate();
 
             foreach (FoodFlavors flavor in Enum.GetValues(typeof(FoodFlavors))) {
@@ -64,9 +70,7 @@ namespace Customer {
         {
             if (platePool != null)
             {
-                currentPlate = platePool.GetRandomPlate();
-                currentPlate.transform.SetParent(transform);
-                currentPlate.transform.transform.localPosition = Vector3.zero;
+                currentPlate = platePool.GetRandomPlate(transform);
             }
             else
             {
@@ -88,6 +92,14 @@ namespace Customer {
             }
 
             return numberOfTilesAccum;
+        }
+
+        public void HandleCustomersChanged()
+        {
+            bool isBubbleActive = GameManager.Instance.CustomerManager.GetActiveCustomer().Equals(this);
+            plateBubble.SetActive(isBubbleActive);
+            Debug.Log($"Active: {GameManager.Instance.CustomerManager.GetActiveCustomer().name}");
+            isActive = isBubbleActive;
         }
 
         public void GenerateFlavors() {
@@ -144,7 +156,6 @@ namespace Customer {
                 platePool.ReleasePlate(currentPlate);
                 Destroy(currentPlate);
                 currentPlate = null;
-
             }
         }
     }

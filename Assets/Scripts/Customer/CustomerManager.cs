@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using UI;
+using Unity.VisualScripting;
+using Timer = UI.Timer;
 
 namespace Customer {
     public class CustomerManager : MonoBehaviour {
@@ -18,7 +21,8 @@ namespace Customer {
 
         public List<Customer> customers = new List<Customer>();
 
-        public UnityEvent OnCustomersDone = new UnityEvent();
+        [CanBeNull] public Action OnCustomersDone;
+        [CanBeNull] public Action OnCustomersChanged;
 
         // call from GameManager
         int _customersLeft = 0;
@@ -27,6 +31,8 @@ namespace Customer {
                 Debug.LogError("Still have customers left!!!");
                 return;
             }
+            
+            Debug.Log("Summoning customers");
 
             _customersLeft = numCustomers;
             CallNextCustomers();
@@ -52,6 +58,7 @@ namespace Customer {
             SetActiveCustomer(_customersLeft);
             SetNextCustomer(_customersLeft);
             _customersLeft--;
+            OnCustomersChanged?.Invoke();
         }
 
         public Customer SetActiveCustomer(int customersLeft) {
@@ -87,10 +94,10 @@ namespace Customer {
 
         // Create a new Customer and set its plate pool reference
         public Customer CreateCustomer() {
-            activeCustomer = customerPool.GetRandomCustomer().GetComponent<Customer>();
+            Customer customer = customerPool.GetRandomCustomer().GetComponent<Customer>();
 
-            if (activeCustomer != null) {
-                return activeCustomer;
+            if (customer != null) {
+                return customer;
             }
 
             return null; // Returns null if the customer creation fails for some reason
@@ -127,5 +134,7 @@ namespace Customer {
 
             return null;
         }
+
+        public Customer GetActiveCustomer() => activeCustomer;
     }
 }

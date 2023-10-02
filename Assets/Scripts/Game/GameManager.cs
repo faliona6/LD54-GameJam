@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
-        CustomerManager.OnCustomersDone.AddListener(Night);
+        CustomerManager.OnCustomersDone += Night;
         //TODO: add listerner for upgrademanager done --> Day
 
         Day(curDay);
