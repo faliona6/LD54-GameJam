@@ -1,17 +1,21 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Food;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using UI;
+using Unity.VisualScripting;
 
 namespace Customer {
     public class Customer : MonoBehaviour {
         public GameObject currentPlate; // To keep track of the plate the customer currently has.
         [SerializeField] private GameObject timerPrefab;
         [SerializeField] private GameObject plateBubble;
+        [SerializeField] private Transform activePlateContainer;
+        [SerializeField] private Transform previewPlateContainer;
 
         public Dictionary<FoodFlavors, int> flavorThreshold = new Dictionary<FoodFlavors, int>();
         public Dictionary<FoodType, int> ingredientTypesThreshold = new Dictionary<FoodType, int>();
@@ -24,13 +28,13 @@ namespace Customer {
         
         private void Awake()
         {
+            platePool = GameManager.Instance.CustomerManager.platePool;
             GameManager.Instance.CustomerManager.OnCustomersChanged += HandleCustomersChanged;
         }
 
         // Start is called before the first frame update
         void Start() {
-            platePool = GameManager.Instance.CustomerManager.platePool;
-            RequestPlate();
+            //RequestPlate();
 
             foreach (FoodFlavors flavor in Enum.GetValues(typeof(FoodFlavors))) {
                 flavorThreshold[flavor] = 0;
@@ -66,11 +70,11 @@ namespace Customer {
         }
 
         // Method to request a random plate from the pool.
-        public void RequestPlate()
+        public void RequestPlate(Transform parentTransform)
         {
             if (platePool != null)
             {
-                currentPlate = platePool.GetRandomPlate(transform);
+                currentPlate = platePool.GetRandomPlate(parentTransform);
             }
             else
             {
@@ -97,10 +101,18 @@ namespace Customer {
 
         public void HandleCustomersChanged()
         {
-            bool isBubbleActive = GameManager.Instance.CustomerManager.GetActiveCustomer().Equals(this);
-            plateBubble.SetActive(isBubbleActive);
+            isActive = GameManager.Instance.CustomerManager.GetActiveCustomer().Equals(this);
+
+            Transform current = isActive ? activePlateContainer : previewPlateContainer;
+            Transform disabled = isActive ? previewPlateContainer : activePlateContainer;
+            
+            current.gameObject.SetActive(true);
+            disabled.gameObject.SetActive(false);
+
+            RequestPlate(current);
+
+            //plateBubble.SetActive(isActive);
             Debug.Log($"Active: {GameManager.Instance.CustomerManager.GetActiveCustomer().name}");
-            isActive = isBubbleActive;
         }
 
         public void GenerateFlavors() {
