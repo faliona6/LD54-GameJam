@@ -7,18 +7,20 @@ using Random = UnityEngine.Random;
 
 namespace Customer {
     public class Customer : MonoBehaviour {
-        public CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
-
         public GameObject currentPlate; // To keep track of the plate the customer currently has.
 
         public Dictionary<FoodFlavors, int> flavorThreshold = new Dictionary<FoodFlavors, int>();
         public Dictionary<FoodType, int> ingredientTypesThreshold = new Dictionary<FoodType, int>();
+        
+        CustomerPlatePool platePool;
 
         public UnityEvent OnPlateSuccess = new UnityEvent();
         public UnityEvent OnPlateFail = new UnityEvent();
 
         // Start is called before the first frame update
         void Start() {
+            platePool = GameManager.Instance.CustomerManager.platePool;
+            
             RequestPlate();
 
             foreach (FoodFlavors flavor in Enum.GetValues(typeof(FoodFlavors))) {

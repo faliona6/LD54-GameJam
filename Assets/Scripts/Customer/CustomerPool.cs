@@ -9,7 +9,6 @@ namespace Customer
     {
         [SerializeField] private Sprite[] customerSprites;
         [SerializeField] private GameObject customerContainer;
-        [SerializeField] private CustomerPlatePool platePool;
         [SerializeField] private GameObject customerPrefab;
         
         private List<Sprite> pooledSprites = new List<Sprite>();
@@ -22,12 +21,6 @@ namespace Customer
             {
                 pooledSprites.Add(customerSprites[i]);
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
 
         public GameObject GetRandomCustomer()
