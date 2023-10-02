@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
     public static Player Instance { get; private set; }
 
     [SerializeField] LayerMask _moveableLayer;
+    [SerializeField] LayerMask _uiLayer;
 
     public PlayerInventory PlayerInventory;
 
@@ -41,6 +42,21 @@ public class Player : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonUp(0)) {
+            Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 100.0f, _uiLayer);
+
+            // Trashcan
+            if (hit) {
+                if (hit.collider != null) {
+                    if (hit.collider.TryGetComponent(out Trashcan trashcan))
+                    {
+                        _heldMoveable.Trash();
+                        _heldMoveable = null;
+                        return;
+                    }
+                }
+            }
+            
             if (_heldMoveable != null) {
                 Transform dropPos = _heldMoveable.Drop();
                 if (dropPos == null) {
