@@ -10,8 +10,10 @@ namespace Food {
         public int cookTime;
         public bool cooked;
 
-        Dictionary<FoodFlavors, int> flavorScore; // i.e. {Savory: 1, Sweet: 2 }
-
+        public int salty;
+        public int sweet;
+        public int sour;
+        
         public List<Vector2Int> shape;
         public Vector2Int center;
 
@@ -21,17 +23,19 @@ namespace Food {
             sr = GetComponentInChildren<SpriteRenderer>();
         }
 
-        private void Start() {
+        void Start() {
             cookTime = ingredientData.cookTime;
             shape = ingredientData.shape;
             center = ingredientData.center;
+
+            salty = ingredientData.salty;
+            sweet = ingredientData.sweet;
+            sour = ingredientData.sour;
         }
 
         void Copy(Ingredient ingredient) {
             ingredientData = ingredient.ingredientData;
             Start();
         }
-
-        public void setCooked() { cooked = true; }
     }
 }

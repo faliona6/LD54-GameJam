@@ -39,24 +39,22 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
-        
-        
-        
-        StartCoroutine(GameLoop());
+        CustomerManager.OnCustomersDone.AddListener(Night);
+        //TODO: add listerner for upgrademanager done --> Day
+
+        Day(curDay);
 
         // Debug
         // ModifyMoney(25);
     }
 
-    IEnumerator GameLoop() {
-        
-    }
-
     void Day(int curDay) {
         int numCustomers = levels[curDay].numCustomers;
-        for (int i = 0; i < numCustomers; i++) {
-            
-        }
+        CustomerManager.SummonCustomers(numCustomers);
+    }
+
+    void Night() {
+        // TODO: show upgrade screen
     }
     
     public void WonGame() {

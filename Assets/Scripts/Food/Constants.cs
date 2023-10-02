@@ -14,7 +14,7 @@ namespace Food
     public enum FoodFlavors
     {
         Sweet,
-        Savory,
+        Salty,
         Sour
     }
 }
