@@ -4,10 +4,13 @@ using Food;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
+using UI;
 
 namespace Customer {
     public class Customer : MonoBehaviour {
         public GameObject currentPlate; // To keep track of the plate the customer currently has.
+        [SerializeField] private GameObject timerPrefab;
 
         public Dictionary<FoodFlavors, int> flavorThreshold = new Dictionary<FoodFlavors, int>();
         public Dictionary<FoodType, int> ingredientTypesThreshold = new Dictionary<FoodType, int>();
@@ -120,7 +123,19 @@ namespace Customer {
                 ingredientTypesThreshold[randomIngredientType]++;
             }
         }
-        
+        Slider FindSlider(string name)
+        {
+            foreach (Slider slider in UnityEngine.Object.FindObjectsOfType<Slider>())
+            {
+                if (slider.name == name)
+                {
+                    return slider;
+                }
+            }
+
+            return null;
+        }
+
         void OnDestroy()
         {
             // Release the plate back to the pool

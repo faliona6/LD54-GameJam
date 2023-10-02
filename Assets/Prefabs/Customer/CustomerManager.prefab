@@ -54,6 +54,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b9c2aa54fd173c2459fcf21fc97de169, type: 3}
   customerContainer: {fileID: 0}
   customerPrefab: {fileID: 936565684341375039, guid: c33fd68bb2b482544b764b0a067c95ea, type: 3}
+  timePrefab: {fileID: 3666141817223809321, guid: ae3654560607dca47a42235657654d93, type: 3}
 --- !u!1 &4470262857322913936
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,52 +111,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a606dc1b9b87b4429089e74eed8f26e, type: 2}
   - {fileID: 11400000, guid: e950f6e7de562da43b8d745c0ecba920, type: 2}
   platePrefab: {fileID: 576955478643417044, guid: c4019f16cd7c48e459b286b009f5330e, type: 3}
---- !u!1 &7261020556221180664
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 615937446175154241}
-  - component: {fileID: 6630432320351410869}
-  m_Layer: 0
-  m_Name: TimerObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &615937446175154241
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7261020556221180664}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 40730317001138036}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6630432320351410869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7261020556221180664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016e8583b3eb6b34fa61e7a18ca7a0c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  progressBar: {fileID: 0}
-  startTimeInSeconds: 5
 --- !u!1 &7445917849571581894
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +143,6 @@ Transform:
   m_Children:
   - {fileID: 6804656677221281440}
   - {fileID: 274546503113801937}
-  - {fileID: 615937446175154241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2512023092540640835
@@ -210,7 +164,7 @@ MonoBehaviour:
   nextCustomer: {fileID: 0}
   nextCustomerPos: {fileID: 0}
   waitingPos: {fileID: 0}
-  timer: {fileID: 7261020556221180664}
+  timer: {fileID: 0}
   customers: []
   OnCustomersDone:
     m_PersistentCalls:
