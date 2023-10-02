@@ -34,6 +34,7 @@ namespace Food
 
         public void HandleStartCooking()
         {
+            // TODO: Figure out if all ingredients are of the same rawness. If one item in the Pan is cooked, and the other is raw then don't let it start.
             List<Ingredient> ingredients = GetIngredientsInPan();
             if (ingredients.Count == 0)
             {
@@ -50,7 +51,6 @@ namespace Food
             {
                 return;
             }
-
 
             SetIngredientsLocked(ingredients, true);
             int totalCookTime = (ingredients.Select(i => i.ingredientData.cookTime).Sum() / ingredients.Count);
