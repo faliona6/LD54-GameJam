@@ -16,20 +16,9 @@ namespace Customer {
         [SerializeField] Transform nextCustomerPos;
         [SerializeField] Transform waitingPos; // off screen space to put customers beyond the next customer
 
-        public GameObject timer;
-
         public List<Customer> customers = new List<Customer>();
 
         public UnityEvent OnCustomersDone = new UnityEvent();
-
-        void Start() {
-            Timer timerComp = timer.GetComponent<Timer>();
-            timerComp.progressBar = FindSlider("TimerProgressBar");
-            CreateCustomer();
-            Vector3 customerPosition = activeCustomer.transform.position;
-            timerComp.progressBar.GetComponent<RectTransform>().anchoredPosition =
-                new Vector2(customerPosition.x, customerPosition.y + 105);
-        }
 
         // call from GameManager
         int _customersLeft = 0;
@@ -81,6 +70,9 @@ namespace Customer {
             }
 
             activeCustomer.transform.position = activeCustomerPos.position;
+            Timer timer = activeCustomer.gameObject.GetComponent<Timer>();
+            timer.progressBar = FindSlider("TimerProgressBar");
+            timer.StartTimer();
 
             return activeCustomer;
         }
@@ -92,15 +84,6 @@ namespace Customer {
             nextCustomer.transform.position = nextCustomerPos.position;
 
             return nextCustomer;
-        }
-        Slider FindSlider(string name) {
-            foreach (Slider slider in UnityEngine.Object.FindObjectsOfType<Slider>()) {
-                if (slider.name == name) {
-                    return slider;
-                }
-            }
-
-            return null;
         }
 
         // Create a new Customer and set its plate pool reference
@@ -132,6 +115,18 @@ namespace Customer {
                 Debug.Log("Destroying Customer");
                 Destroy(customer);
             }
+        }
+        Slider FindSlider(string name)
+        {
+            foreach (Slider slider in UnityEngine.Object.FindObjectsOfType<Slider>())
+            {
+                if (slider.name == name)
+                {
+                    return slider;
+                }
+            }
+
+            return null;
         }
     }
 }

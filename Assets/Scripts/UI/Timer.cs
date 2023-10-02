@@ -12,6 +12,7 @@ namespace UI
         public float startTimeInSeconds = 45;
 
         private float timeRemaining;
+        private bool timerStarted = false;
         private bool timerEnded = false;
 
         void Start()
@@ -21,17 +22,20 @@ namespace UI
 
         void Update()
         {
-            if (timeRemaining > 0)
+            if (timerStarted)
             {
-                timeRemaining -= Time.deltaTime;
+                if (timeRemaining > 0)
+                {
+                    timeRemaining -= Time.deltaTime;
 
-                // Update progress bar
-                progressBar.value = timeRemaining / startTimeInSeconds;
-            }
-            else if (!timerEnded)
-            {
-                timerEnded = true; // Ensure we only trigger the end function once
-                TimerFinished();
+                    // Update progress bar
+                    progressBar.value = timeRemaining / startTimeInSeconds;
+                }
+                else if (!timerEnded)
+                {
+                    timerEnded = true; // Ensure we only trigger the end function once
+                    TimerFinished();
+                }
             }
         }
 
@@ -40,5 +44,10 @@ namespace UI
             // What you want to do when the timer ends
             Debug.Log("Time's up!");
         }
-}
+
+        public void StartTimer()
+        {
+            timerStarted = true;
+        }
+    }
 }
