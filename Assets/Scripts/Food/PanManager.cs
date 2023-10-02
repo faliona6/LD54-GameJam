@@ -34,42 +34,47 @@ namespace Food
 
         public void HandleStartCooking()
         {
-            if (isBurning)
-            {
-                StopBurning();
-                return;
-            }
-            
-            if (isCooking)
-            {
-                return;
-            }
-            
-            cookButtonText.text = "COOKING";
-            
+            // TODO: Figure out if all ingredients are of the same rawness. If one item in the Pan is cooked, and the other is raw then don't let it start.
             List<Ingredient> ingredients = GetIngredientsInPan();
             if (ingredients.Count == 0)
             {
                 return;
             }
 
-            cookButton.interactable = false;
-            progressBar.gameObject.SetActive(true);
-            isCooking = true;
+            if (isBurning)
+            {
+                StopBurning(ingredients);
+                return;
+            }
+            
+            if (isCooking || ingredients[0].burned)
+            {
+                return;
+            }
 
             SetIngredientsLocked(ingredients, true);
-            int totalCookTime = ingredients.Select(i => i.ingredientData.cookTime).Sum();
+            int totalCookTime = (ingredients.Select(i => i.ingredientData.cookTime).Sum() / ingredients.Count);
 
-            cookingCoroutine = StartCoroutine(CookingTimer((int)(totalCookTime / ingredients.Count), ingredients));
+            if (!ingredients[0].cooked)
+            {
+                cookingCoroutine = StartCoroutine(CookingTimer(totalCookTime, ingredients));
+                cookButtonText.text = "COOKING";
+                cookButton.interactable = false;
+                isCooking = true;
+            }
+            else
+            {
+                burningCoroutine = StartCoroutine(BurnTimer(totalCookTime / 2));
+                cookButton.interactable = true;
+            }
+
+            progressBar.gameObject.SetActive(true);
         }
 
         private void FinishCooking(List<Ingredient> ingredients)
         {
-            cookButtonText.text = "STOP";
-
             ingredients.ForEach(ingredient => ingredient.FinishCooking());
             isCooking = false;
-            SetIngredientsLocked(ingredients, false);
             cookButton.interactable = true;
         }
 
@@ -78,10 +83,11 @@ namespace Food
             ingredients.ForEach(ingredient => ingredient.Burn());
         }
 
-        private void StopBurning()
+        private void StopBurning(List<Ingredient> ingredients)
         {
-            isBurning = false;
             StopCoroutine(burningCoroutine);
+            isBurning = false;
+            SetIngredientsLocked(ingredients, false);
             progressBar.gameObject.SetActive(false);
             cookButtonText.text = "COOK!";
         }
@@ -134,6 +140,7 @@ namespace Food
         {
             float timer = 0f;
             isBurning = true;
+            cookButtonText.text = "STOP";
 
             while (timer < burnTime)
             {
@@ -145,7 +152,7 @@ namespace Food
 
             List<Ingredient> currentIngredients = GetIngredientsInPan();
             BurnFood(currentIngredients);
-            StopBurning();
+            StopBurning(currentIngredients);
         }
     }
 }
