@@ -1,21 +1,25 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace UI
 {
     [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Button))]
     public class GenericButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField] private float scaleAnimationTime = 0.2f;
         [SerializeField] private float scaleSize = 0.9f;
 
         private RectTransform rectTransform;
+        private Button button;
         private Vector3 initialScale;
 
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
+            button = GetComponent<Button>();
             initialScale = rectTransform.localScale;
         }
 
@@ -36,6 +40,10 @@ namespace UI
 
         private void PlayScaleTween(Vector3 endScale)
         {
+            if (!button.interactable)
+            {
+                return;
+            }
             rectTransform.DOScale(endScale, scaleAnimationTime)
                 .SetEase(Ease.InOutCubic)
                 .SetId(this);

@@ -6,17 +6,18 @@ using UnityEngine.PlayerLoop;
 
 namespace Food {
     public class Ingredient : MonoBehaviour {
-        public SO_Ingredients ingredientData;
-
-        public int cookTime;
-        public bool cooked;
-
-        public int salty;
-        public int sweet;
-        public int sour;
         
-        public List<Vector2Int> shape;
-        public Vector2Int center;
+        public SO_Ingredients ingredientData;
+        [SerializeField] private SpriteRenderer sprite;
+        
+        private int cookTime;
+        [HideInInspector] public bool cooked;
+        [HideInInspector] public int salty;
+        [HideInInspector] public int sweet;
+        [HideInInspector] public int sour;
+        
+        [HideInInspector] public List<Vector2Int> shape;
+        [HideInInspector] public Vector2Int center;
 
         SpriteRenderer sr;
 
@@ -45,6 +46,12 @@ namespace Food {
         void Copy(Ingredient ingredient) {
             ingredientData = ingredient.ingredientData;
             Start();
+        }
+
+        public void FinishCooking()
+        {
+            cooked = true;
+            sprite.sprite = ingredientData.cookedSprite;
         }
     }
 }

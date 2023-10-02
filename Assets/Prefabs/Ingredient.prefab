@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b4d67318e6994f54298c84eccc3d740a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientData: {fileID: 0}
-  cookTime: 0
+  sprite: {fileID: 1891490593683773398}
   cooked: 0
   salty: 0
   sweet: 0
@@ -225,3 +225,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearestSnappableObjs: []
+  isLocked: 0
