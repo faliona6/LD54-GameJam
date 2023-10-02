@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Food
 {
-
     [RequireComponent(typeof(Ingredient))]
     public class MoveableIngredient : MonoBehaviour, IMoveable {
         public List<Transform> nearestSnappableObjs = new List<Transform>();
+        public bool isLocked = false;
 
         Ingredient _ingredient;
 
@@ -51,7 +51,7 @@ namespace Food
         public Transform PickUp() {
             Transform slot = transform.parent;
             if (slot != null) {
-                if (!slot.GetComponent<Slot>().PickUpHeld()) { // failed to pickup from slot, such as when slot is locked
+                if (isLocked || !slot.GetComponent<Slot>().PickUpHeld()) { // failed to pickup from slot, such as when slot is locked
                     return null;
                 }
                 _orignalSlot = slot.GetComponent<Slot>();

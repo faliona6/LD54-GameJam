@@ -39,7 +39,7 @@ namespace Food {
             Start();
         }
 
-        public void Cook()
+        public void FinishCooking()
         {
             cooked = true;
             sprite.sprite = ingredientData.cookedSprite;
