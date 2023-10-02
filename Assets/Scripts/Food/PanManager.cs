@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,12 @@ namespace Food
         private List<Slot> _cookingSlots = new();
         private SlotGrid _slotGrid;
         private bool isCooking = false;
+        private bool isBurning = false;
+
+        private TextMeshProUGUI cookButtonText;
+
+        private Coroutine cookingCoroutine;
+        private Coroutine burningCoroutine;
 
         void Start()
         {
@@ -22,16 +29,25 @@ namespace Food
 
             _cookingSlots = _slotGrid.GetSlotsOfType(Slot.SlotType.Cooking);
             progressBar.gameObject.SetActive(false);
+            cookButtonText = cookButton.GetComponentInChildren<TextMeshProUGUI>();
         }
 
         public void HandleStartCooking()
         {
+            if (isBurning)
+            {
+                StopBurning();
+                return;
+            }
+            
             if (isCooking)
             {
                 return;
             }
             
-            List<Ingredient> ingredients = GetIngredientsToCook();
+            cookButtonText.text = "COOKING";
+            
+            List<Ingredient> ingredients = GetIngredientsInPan();
             if (ingredients.Count == 0)
             {
                 return;
@@ -44,18 +60,33 @@ namespace Food
             SetIngredientsLocked(ingredients, true);
             int totalCookTime = ingredients.Select(i => i.ingredientData.cookTime).Sum();
 
-            StartCoroutine(CookingTimer((int)(totalCookTime / ingredients.Count), ingredients));
+            cookingCoroutine = StartCoroutine(CookingTimer((int)(totalCookTime / ingredients.Count), ingredients));
         }
 
         private void FinishCooking(List<Ingredient> ingredients)
         {
+            cookButtonText.text = "STOP";
+
             ingredients.ForEach(ingredient => ingredient.FinishCooking());
             isCooking = false;
             SetIngredientsLocked(ingredients, false);
             cookButton.interactable = true;
         }
+
+        private void BurnFood(List<Ingredient> ingredients)
+        {
+            ingredients.ForEach(ingredient => ingredient.Burn());
+        }
+
+        private void StopBurning()
+        {
+            isBurning = false;
+            StopCoroutine(burningCoroutine);
+            progressBar.gameObject.SetActive(false);
+            cookButtonText.text = "COOK!";
+        }
         
-        private List<Ingredient> GetIngredientsToCook()
+        private List<Ingredient> GetIngredientsInPan()
         {
             List<Ingredient> ingredientsToCook = new List<Ingredient>();
 
@@ -92,15 +123,29 @@ namespace Food
                 // Increment the timer.
                 timer += Time.deltaTime;
                 progressBar.value = timer / totalCookTime;
-
-                // You can update a progress bar or display the remaining time if needed.
-
-                yield return null; // Wait for the next frame.
+                yield return null; 
             }
 
-            // Cooking is complete. Finish cooking and set ingredients to be cooked = true.
             FinishCooking(ingredientsInPan);
-            progressBar.gameObject.SetActive(false);
+            burningCoroutine = StartCoroutine(BurnTimer(totalCookTime / 2));
+        }
+        
+        private IEnumerator BurnTimer(float burnTime)
+        {
+            float timer = 0f;
+            isBurning = true;
+
+            while (timer < burnTime)
+            {
+                // Increment the timer.
+                timer += Time.deltaTime;
+                progressBar.value = timer / burnTime;
+                yield return null;
+            }
+
+            List<Ingredient> currentIngredients = GetIngredientsInPan();
+            BurnFood(currentIngredients);
+            StopBurning();
         }
     }
 }
