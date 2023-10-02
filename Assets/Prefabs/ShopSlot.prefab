@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
-  canPlace: 0
+  canPlace: 1
   canPickUp: 1
   _ingredient: {fileID: 0}
   OnSlotPlaced:
