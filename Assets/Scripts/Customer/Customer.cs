@@ -16,6 +16,8 @@ namespace Customer {
 
         public UnityEvent OnPlateSuccess = new UnityEvent();
         public UnityEvent OnPlateFail = new UnityEvent();
+        
+        private static readonly Vector2 PlateOffset = new Vector2(-4f, 5f);
 
         // Start is called before the first frame update
         void Start() {
@@ -65,7 +67,8 @@ namespace Customer {
             {
                 currentPlate = platePool.GetRandomPlate();
                 currentPlate.transform.SetParent(transform);
-                currentPlate.transform.transform.localPosition = Vector3.zero;
+                currentPlate.transform.transform.localPosition = 
+                    new Vector3(PlateOffset.x, PlateOffset.y, 0);
             }
             else
             {

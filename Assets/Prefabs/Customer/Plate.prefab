@@ -59,4 +59,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f03286d6b5624df3ac03e6545b86ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slotPrefab: {fileID: 8825895621476342492, guid: 255fbf80108d58e41b5a43559ea16963, type: 3}
+  _slotPrefab: {fileID: 436444671088682245, guid: 15bbe689b88fed14a9d0d15d83aae637, type: 3}

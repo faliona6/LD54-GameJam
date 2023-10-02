@@ -11,7 +11,7 @@ namespace Customer
         [SerializeField] private GameObject customerContainer;
         [SerializeField] private GameObject customerPrefab;
         
-        private List<Sprite> pooledSprites = new List<Sprite>();
+        private List<Sprite> pooledSprites = new();
 
         // Start is called before the first frame update
         void Start()
