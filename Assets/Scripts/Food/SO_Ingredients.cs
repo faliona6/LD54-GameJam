@@ -17,5 +17,8 @@ namespace Food
         public int cookTime;
         public List<Vector2Int> shape;
         public Vector2Int center;
+        
+        public Sprite uncookedSprite;
+        public Sprite cookedSprite;
     }
 }

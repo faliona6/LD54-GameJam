@@ -17,13 +17,21 @@ public class Slot : MonoBehaviour {
     public UnityEvent OnSlotPlaced = new UnityEvent();
     public UnityEvent OnSlotPickedUp = new UnityEvent();
 
+    private SlotType slotType = SlotType.Empty;
+
     void Awake() { _mSlotGrid = transform.parent.GetComponent<SlotGrid>(); }
+
+    public enum SlotType
+    {
+        Empty,
+        Cooking,
+    }
 
     // Place handles registering an Ingredient with the slot
     public bool Place(Ingredient ingredient) {
         foreach (Vector2Int offset in ingredient.shape) { // should contain center
             Slot s = _mSlotGrid.SelectSlotRelative(new Vector2Int(x, y), offset);
-            if (!s || !s.IsEmpty() || !s.canPlace) {
+            if (!s || !s.IsEmpty() || !s.canPlace || !slotType.Equals(s.GetSlotType()) ) {
                 return false;
             }
         }
@@ -64,6 +72,13 @@ public class Slot : MonoBehaviour {
 
         return ing.transform;
     }
+
+    public void SetSlotType(SlotType type)
+    {
+        slotType = type;
+    }
+
+    public SlotType GetSlotType() => slotType;
 
     public bool IsEmpty() { return _ingredient == null; }
 }

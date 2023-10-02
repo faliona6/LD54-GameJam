@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour {
     
     public SlotGrid slotGrid;
 
-    void Start() {
+    void Awake() {
         slotGrid.Init(container);
     }
 

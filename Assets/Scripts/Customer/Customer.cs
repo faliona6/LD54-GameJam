@@ -80,6 +80,7 @@ namespace Customer {
 
         private int GetNumberOfTiles() {
             int numberOfTilesAccum = 0;
+            
             for (int i = 0; i < currentPlate.GetComponent<Plate>().container.matrix.Count; i++)
             {
                 for (int j = 0; j < currentPlate.GetComponent<Plate>().container.matrix[i].columns.Count; j++)

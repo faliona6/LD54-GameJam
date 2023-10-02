@@ -22,10 +22,6 @@ namespace Food
         public PanManager panManager;
         public void Start()
         {
-            cookButton = panManager.cookButtons[panManager.panCount - 1];
-            cookButton.gameObject.SetActive(true);
-            
-            cookButton.onClick.AddListener(StartCooking);
         }
         // Start cooking all ingredients in the pan
         public void StartCooking()
@@ -43,7 +39,7 @@ namespace Food
             // each ingredient increases the total cook time for the pan
             foreach (Ingredient ingredient in ingredientsToCook)
             {
-                cookTime += ingredient.cookTime;
+                cookTime += ingredient.ingredientData.cookTime;
             }
 
             Debug.Log("Cooking started.");
