@@ -30,7 +30,7 @@ namespace UI
         }
 
         public void OnPointerDown(PointerEventData eventData) =>
-            PlayScaleTween(new Vector3(scaleSize, scaleSize, 1));
+            PlayScaleTween(new Vector3(scaleSize * initialScale.x, scaleSize * initialScale.y, 1));
         public void OnPointerUp(PointerEventData eventData) => 
             PlayScaleTween(initialScale);
 

@@ -1,20 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Window : MonoBehaviour {
-    bool _toggle = true;
-    public void Toggle() {
-        if (_toggle) {
-            Show();
-        } else {
-            Hide();
+namespace UI
+{
+    public class Window : MonoBehaviour 
+    {
+        [SerializeField] private bool showOnStart = true;
+
+        private bool _toggle = true;
+
+        private void Start()
+        {
+            if (showOnStart)
+            {
+                Show();
+            }
+            else 
+            {
+                Hide();
+            }
         }
 
-        _toggle = !_toggle;
-    }
-    
-    public void Show() { gameObject.SetActive(true); }
+        public void Toggle() {
+            if (_toggle) {
+                Show();
+            } else {
+                Hide();
+            }
 
-    public void Hide() { gameObject.SetActive(false); }
+            _toggle = !_toggle;
+        }
+    
+        public void Show() { gameObject.SetActive(true); }
+
+        public void Hide() { gameObject.SetActive(false); }
+    }
 }
