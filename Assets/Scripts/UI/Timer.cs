@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Customer;
 
 namespace UI
 {
@@ -41,8 +42,8 @@ namespace UI
 
         void TimerFinished()
         {
-            // What you want to do when the timer ends
-            Debug.Log("Time's up!");
+            Customer.Customer customer = gameObject.GetComponent<Customer.Customer>();
+            customer.OnPlateFail.Invoke();
         }
 
         public void StartTimer()

@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour {
 
     public Canvas WorldCanvas => _worldCanvas;
     [SerializeField] Canvas _worldCanvas;
-    
+    public Canvas DefeatCanvas => _defeatCanvas;
+    [SerializeField] Canvas _defeatCanvas;
+
     public CustomerManager CustomerManager => _customerManager;
     [SerializeField] CustomerManager _customerManager;
 
@@ -62,10 +64,12 @@ public class GameManager : MonoBehaviour {
     }
     public void LostGame() {
         OnLostGame.Invoke();
+        DefeatCanvas.gameObject.SetActive(true);
     }
 
     public void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single); // TODO: change to load Title screen
+        DefeatCanvas.gameObject.SetActive(false);
     }
 
     /**********************   Money Funcs   *********************/
