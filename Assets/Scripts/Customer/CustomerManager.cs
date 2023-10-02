@@ -37,8 +37,7 @@ namespace Customer {
             CallNextCustomers();
         }
         public void PlateFail() {
-            // TODO: add plate failure penalty
-            CallNextCustomers();
+            GameManager.Instance.LostGame();
         }
 
         public void CallNextCustomers() {
