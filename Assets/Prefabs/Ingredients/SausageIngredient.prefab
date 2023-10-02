@@ -9,12 +9,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92929
+      objectReference: {fileID: 0}
+    - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.92929
+      objectReference: {fileID: 0}
+    - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.92929
+      objectReference: {fileID: 0}
+    - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.927
       objectReference: {fileID: 0}
     - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.927
       objectReference: {fileID: 0}
     - target: {fileID: 1999884391498400682, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: ingredientData
@@ -23,6 +35,22 @@ PrefabInstance:
     - target: {fileID: 5069176114432675784, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_Name
       value: SausageIngredient
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Size.x
+      value: 3.122662
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Size.y
+      value: 2.990683
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.8523643
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.7643781
       objectReference: {fileID: 0}
     - target: {fileID: 7976443802153422023, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalPosition.x

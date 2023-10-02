@@ -14,15 +14,23 @@ public class SlotGrid : MonoBehaviour {
 
     public void Init(Container container) {
         for (int x = 0; x < container.matrix.Count; x++) {
-            for (int y = 0; y < container.matrix[0].columns.Count; y++) {
-                if (container.matrix[x].columns[y] == 1) {
-                    Slot slot = Instantiate(_slotPrefab, transform).GetComponent<Slot>();
-                    slot.transform.localPosition = new Vector3(x, y, 0);
-                    slot.x = x;
-                    slot.y = y;
-
-                    slotGrid[new Vector2Int(x, y)] = slot;
+            for (int y = 0; y < container.matrix[0].columns.Count; y++)
+            {
+                int value = container.matrix[x].columns[y];
+                if (value is not (1 or 2))
+                {
+                    continue;
                 }
+                
+                Slot.SlotType type = value == 1 ? Slot.SlotType.Empty : Slot.SlotType.Cooking;
+                    
+                Slot slot = Instantiate(_slotPrefab, transform).GetComponent<Slot>();
+                slot.SetSlotType(type);
+                slot.transform.localPosition = new Vector3(x, y, 0);
+                slot.x = x;
+                slot.y = y;
+
+                slotGrid[new Vector2Int(x, y)] = slot;
             }
         }
     }
@@ -59,6 +67,19 @@ public class SlotGrid : MonoBehaviour {
         }
 
         return ingredients;
+    }
+
+    public List<Slot> GetSlotsOfType(Slot.SlotType type)
+    {
+        List<Slot> slots = new List<Slot>();
+        foreach (KeyValuePair<Vector2Int, Slot> slot in slotGrid)
+        {
+            if (slot.Value.GetSlotType().Equals(type))
+            {
+                slots.Add(slot.Value);
+            }
+        }
+        return slots;
     }
 
     public bool IsInBounds(int x, int y) { return slotGrid.ContainsKey(new Vector2Int(x, y)); }

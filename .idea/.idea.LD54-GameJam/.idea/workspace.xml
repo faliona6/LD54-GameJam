@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="91781d34-2997-4387-b10b-7f0a437fea26" name="Changes" comment="" />
+    <list default="true" id="91781d34-2997-4387-b10b-7f0a437fea26" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LD54-GameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LD54-GameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Customer/Customer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Customer/Customer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredient.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ingredient.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/SausageIngredient.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/SausageIngredient.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Food/Ingredients/Sausage.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Food/Ingredients/Sausage.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Food/MoveableIngredient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Food/MoveableIngredient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Ingredients/IMG_1451.PNG.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Ingredients/IMG_1451.PNG.meta" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,10 +44,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "cooking",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
@@ -47,10 +61,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24220">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="24220" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -85,14 +99,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Player/Pantry.cs</url>
           <line>34</line>
-          <properties documentPath="C:\Users\bryan\Documents\1_Unity\LD54-GameJam\Assets\Scripts\Player\Pantry.cs" initialLine="33" containingFunctionPresentation="method 'SpawnIngredient'">
-            <startOffsets>
-              <option value="1077" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1161" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\bryan\Documents\1_Unity\LD54-GameJam\Assets\Scripts\Player\Pantry.cs" initialLine="33" containingFunctionPresentation="method 'SpawnIngredient'" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
