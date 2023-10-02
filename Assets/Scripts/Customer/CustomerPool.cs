@@ -7,9 +7,11 @@ namespace Customer
 
     public class CustomerPool : MonoBehaviour
     {
-        [SerializeField] public Sprite[] customerSprites;
-        public CustomerPlatePool platePool;
-        public GameObject customerPrefab;
+        [SerializeField] private Sprite[] customerSprites;
+        [SerializeField] private GameObject customerContainer;
+        [SerializeField] private CustomerPlatePool platePool;
+        [SerializeField] private GameObject customerPrefab;
+        
         private List<Sprite> pooledSprites = new List<Sprite>();
 
         // Start is called before the first frame update
@@ -40,7 +42,7 @@ namespace Customer
             Sprite sprite = pooledSprites[index];
             pooledSprites.RemoveAt(index); // Remove the customer from the pool to ensure it's not reused unless returned.
             customerPrefab.GetComponent<SpriteRenderer>().sprite = sprite;
-            GameObject customer = Instantiate(customerPrefab);
+            GameObject customer = Instantiate(customerPrefab, customerContainer.transform);
             return customer;
         }
 
