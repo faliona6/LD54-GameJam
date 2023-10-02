@@ -13,8 +13,18 @@ namespace Customer
 
         private void Start()
         {
-            slotGrid.Init(container);
+            Init(container);
         }
+
+        bool calledOnce = false;
+        public void Init(Container _container = null) {
+            if (!calledOnce) {
+                calledOnce = true;
+                if (_container == null) _container = container;
+                slotGrid.Init(container);
+            } 
+        }
+
 
         public void Score(List<Ingredient> ingredients)
         {

@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 using UnityEngine.UI;
 using UI;
 using Unity.VisualScripting;
+using UnityEngine.PlayerLoop;
 
 namespace Customer {
     public class Customer : MonoBehaviour {
@@ -47,10 +48,6 @@ namespace Customer {
             }
 
             GenerateIngredientTypes();
-            
-            foreach (KeyValuePair<Vector2Int, Slot> slot in currentPlate.GetComponent<Plate>().slotGrid.slotGrid) {
-                slot.Value.OnSlotPlaced.AddListener(CheckIngredients);
-            }
         }
 
         public void CheckIngredients() {
@@ -75,6 +72,10 @@ namespace Customer {
             if (platePool != null)
             {
                 currentPlate = platePool.GetRandomPlate(parentTransform);
+                currentPlate.GetComponent<Plate>().Init();
+                foreach (KeyValuePair<Vector2Int, Slot> slot in currentPlate.GetComponent<Plate>().slotGrid.slotGrid) {
+                    slot.Value.OnSlotPlaced.AddListener(CheckIngredients);
+                }
             }
             else
             {
@@ -126,6 +127,8 @@ namespace Customer {
             for (int i = 0; i < numberOfFlavors; i++) {
                 FoodFlavors randomFlavor = (FoodFlavors) enumValues.GetValue(random.Next(enumValues.Length));
                 flavorThreshold[randomFlavor]++;
+                
+                print(flavorThreshold[randomFlavor]);
             }
         }
 
