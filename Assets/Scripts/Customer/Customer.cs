@@ -62,6 +62,7 @@ namespace Customer {
             if (platePool != null)
             {
                 currentPlate = platePool.GetRandomPlate();
+                currentPlate.transform.SetParent(transform);
             }
             else
             {
