@@ -7,4 +7,5 @@ public interface IMoveable {
     
     Transform Drop();
     Transform PickUp();
+    void Trash();
 }

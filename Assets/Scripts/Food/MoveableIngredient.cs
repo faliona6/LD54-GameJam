@@ -1,4 +1,8 @@
+using System;
 using System.Collections.Generic;
+using DG.Tweening;
+using Unity.VisualScripting;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 namespace Food
@@ -15,6 +19,11 @@ namespace Food
         public Transform Transform => transform;
 
         void Awake() { _ingredient = GetComponent<Ingredient>(); }
+
+        private void OnDestroy()
+        {
+            DOTween.Kill(this);
+        }
 
         public Transform Drop() {
             // Snap to nearest Slot
@@ -59,6 +68,14 @@ namespace Food
             }
 
             return transform;
+        }
+
+        public void Trash()
+        {
+            transform.DOScale(Vector3.zero, 0.3f)
+                .SetEase(Ease.OutCubic)
+                .SetId(this)
+                .OnComplete(() => Destroy(this));
         }
 
         void OnTriggerEnter2D(Collider2D col) {
