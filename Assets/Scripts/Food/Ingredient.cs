@@ -12,6 +12,7 @@ namespace Food {
         
         private int cookTime;
         [HideInInspector] public bool cooked;
+        [HideInInspector] public bool burned;
         [HideInInspector] public int salty;
         [HideInInspector] public int sweet;
         [HideInInspector] public int sour;
@@ -52,6 +53,13 @@ namespace Food {
         {
             cooked = true;
             sprite.sprite = ingredientData.cookedSprite;
+        }
+        
+        public void Burn()
+        {
+            burned = true;
+            ColorUtility.TryParseHtmlString( "#412020" , out Color burntColor);
+            sprite.color = burntColor;
         }
     }
 }
