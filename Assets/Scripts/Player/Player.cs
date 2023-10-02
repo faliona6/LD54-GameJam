@@ -43,8 +43,11 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonUp(0)) {
             if (_heldMoveable != null) {
                 Transform dropPos = _heldMoveable.Drop();
+                if (dropPos == null) {
+                    return;
+                }
+                
                 StartCoroutine(Utils.MoveObjToPoint(_heldMoveable.Transform, dropPos.position));
-
                 _heldMoveable = null;
             }
         }

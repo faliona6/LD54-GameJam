@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Egg
   FoodType: 2
+  salty: 0
+  sweet: 0
+  sour: 0
   cookTime: 4
-  container: {fileID: 11400000, guid: dd4960706b7261e498b4f5669479ac14, type: 2}
+  shape:
+  - {x: 0, y: 0}
+  center: {x: 0, y: 0}

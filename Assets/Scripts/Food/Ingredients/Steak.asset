@@ -14,5 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   FoodType: 0
+  salty: 0
+  sweet: 0
+  sour: 0
   cookTime: 0
-  shape: []
+  shape:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  center: {x: 0, y: 0}

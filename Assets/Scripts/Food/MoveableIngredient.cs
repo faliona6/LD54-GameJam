@@ -22,12 +22,6 @@ namespace Food
             Slot snapSlot = null;
             for (int i = 0; i < nearestSnappableObjs.Count; i++) {
                 Transform near = nearestSnappableObjs[i];
-                // // For keepCard recipes, a nearest card could be destroyed, but ref to it remains in nearestSnappableObjs.
-                // // This cleans up those refs... Other solution could be moving object to be destroyed far away to trigger OnTriggerExit?
-                // if (near == null) {
-                //     nearestSnappableObjs.Remove(near);
-                //     continue;
-                // }
 
                 float d = Vector3.Distance(transform.position, near.transform.position);
                 if (near.TryGetComponent(out Slot slot)) {
@@ -42,8 +36,10 @@ namespace Food
             if (snapSlot && snapSlot.Place(_ingredient)) { // Try placing in slot grid
                 // If valid new position, move to slot
                 return snapSlot.transform;
-            } else { // Place in original slot
+            } else if (_orignalSlot) { // Place in original slot if available
                 return _orignalSlot.transform;
+            } else { // Keep in hand
+                return null;
             }
         }
 

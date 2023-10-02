@@ -10,31 +10,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7
+      value: 0.18
       objectReference: {fileID: 0}
+    - target: {fileID: 1891490593683773398, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a3af691423a0de44a8549373d85334c, type: 3}
     - target: {fileID: 1999884391498400682, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: ingredientData
       value: 
-      objectReference: {fileID: 11400000, guid: 86c7f9e66954a434b853f15bd59e1429, type: 2}
+      objectReference: {fileID: 11400000, guid: 0f985aee1d94e1643ac9e4cdc1dab9e4, type: 2}
     - target: {fileID: 5069176114432675784, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_Name
-      value: SausageIngredient
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.5
+      value: EggIngredient
       objectReference: {fileID: 0}
     - target: {fileID: 7976443802153422023, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalScale.x
@@ -88,58 +80,5 @@ PrefabInstance:
     - {fileID: 777925424057071699, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5069176114432675784, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 5683559178292246681}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
---- !u!1 &7846562342250690072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5069176114432675784, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-  m_PrefabInstance: {fileID: 3079831236326767056}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &5683559178292246681
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7846562342250690072}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.01, y: 0.01}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
