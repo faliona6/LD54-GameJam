@@ -135,18 +135,6 @@ namespace Customer {
                 ingredientTypesThreshold[randomIngredientType]++;
             }
         }
-        Slider FindSlider(string name)
-        {
-            foreach (Slider slider in UnityEngine.Object.FindObjectsOfType<Slider>())
-            {
-                if (slider.name == name)
-                {
-                    return slider;
-                }
-            }
-
-            return null;
-        }
 
         void OnDestroy()
         {

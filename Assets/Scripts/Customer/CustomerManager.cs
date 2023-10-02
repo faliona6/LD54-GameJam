@@ -71,11 +71,11 @@ namespace Customer {
                 activeCustomer = nextCustomer;
             } else { // generate new customer
                 activeCustomer = CreateCustomer();
-                activeCustomer.OnPlateSuccess.AddListener(PlateSuccess);
-                activeCustomer.OnPlateFail.AddListener(PlateFail);
             }
 
             activeCustomer.transform.position = activeCustomerPos.position;
+            activeCustomer.OnPlateSuccess.AddListener(PlateSuccess);
+            activeCustomer.OnPlateFail.AddListener(PlateFail);
             Timer timer = activeCustomer.gameObject.GetComponent<Timer>();
             timer.progressBar = FindSlider("TimerProgressBar");
             timer.StartTimer();
@@ -108,19 +108,14 @@ namespace Customer {
             if (customer == null) return;
 
             // Release the customer back to the pool
-            if (customerPool != null && customer != null) {
+            if (customerPool != null) {
                 customerPool.ReleaseCustomer(customer.gameObject);
-                activeCustomer = null;
             }
 
             customer.OnPlateSuccess.RemoveListener(PlateSuccess);
             customer.OnPlateFail.RemoveListener(PlateFail);
-
-            // Destroy the current plate GameObject if it exists
-            if (customer != null) {
-                Debug.Log("Destroying Customer");
-                Destroy(customer);
-            }
+            Debug.Log("Destroying Customer");
+            Destroy(customer.gameObject);
         }
         Slider FindSlider(string name)
         {
