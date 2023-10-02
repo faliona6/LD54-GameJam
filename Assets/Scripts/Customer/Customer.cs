@@ -10,8 +10,7 @@ namespace Customer
     {
         public CustomerPlatePool platePool; // Reference to the CustomerPlatePool.
 
-        public Plate currentPlateObj; // To keep track of the plate the customer currently has.
-        public Plate currentPlate; // To keep track of the plate the customer currently has.
+        public GameObject currentPlate; // To keep track of the plate the customer currently has.
 
         public Dictionary<FoodFlavors, int> flavorThreshold = new Dictionary<FoodFlavors, int>();
         public Dictionary<FoodType, int> ingredientTypesThreshold = new Dictionary<FoodType, int>();
@@ -21,16 +20,10 @@ namespace Customer
             // Release the plate back to the pool
             if (platePool != null && currentPlate != null)
             {
-                platePool.ReleasePlate(currentPlateObj);
-                currentPlateObj = null;
-            }
-
-            // Destroy the current plate GameObject if it exists
-            if (currentPlate != null)
-            {
-                Debug.Log("Destroying Plate");
-                Destroy(currentPlate.gameObject);
+                platePool.ReleasePlate(currentPlate);
+                Destroy(currentPlate);
                 currentPlate = null;
+
             }
         }
 
@@ -70,15 +63,7 @@ namespace Customer
         {
             if (platePool != null)
             {
-                currentPlateObj = platePool.GetRandomPlate();
-                if (currentPlateObj != null)
-                {
-                    currentPlate = currentPlateObj.GetComponent<Plate>();
-                }
-                else
-                {
-                    Debug.LogWarning("No plates available in the pool!");
-                }
+                currentPlate = platePool.GetRandomPlate();
             }
             else
             {
@@ -90,11 +75,11 @@ namespace Customer
         {
             int numberOfTilesAccum = 0;
             
-            for (int i = 0; i < currentPlateObj.container.matrix.Count; i++)
+            for (int i = 0; i < currentPlate.GetComponent<Plate>().container.matrix.Count; i++)
             {
-                for (int j = 0; j < currentPlateObj.container.matrix[i].columns.Count; j++)
+                for (int j = 0; j < currentPlate.GetComponent<Plate>().container.matrix[i].columns.Count; j++)
                 {
-                    if (currentPlateObj.container.matrix[i].columns[j] == 1)
+                    if (currentPlate.GetComponent<Plate>().container.matrix[i].columns[j] == 1)
                     {
                         numberOfTilesAccum++;
                     }

@@ -7,16 +7,18 @@ namespace Customer
 
     public class CustomerPool : MonoBehaviour
     {
-        [SerializeField] public Customer[] customerPrefabs;
-        private List<Customer> pooledCustomers = new List<Customer>();
+        [SerializeField] public Sprite[] customerSprites;
+        public CustomerPlatePool platePool;
+        public GameObject customerPrefab;
+        private List<Sprite> pooledSprites = new List<Sprite>();
 
         // Start is called before the first frame update
         void Start()
         {
             // Initialize the pool with plates from the assets list.
-            for (int i = 0; i < customerPrefabs.Length; i++)
+            for (int i = 0; i < customerSprites.Length; i++)
             {
-                pooledCustomers.Add(customerPrefabs[i]);
+                pooledSprites.Add(customerSprites[i]);
             }
         }
 
@@ -26,25 +28,27 @@ namespace Customer
 
         }
 
-        public Customer GetRandomCustomer()
+        public GameObject GetRandomCustomer()
         {
-            if (pooledCustomers.Count == 0)
+            if (pooledSprites.Count == 0)
             {
                 Debug.LogWarning("Pool is empty! Consider increasing the pool size or reusing customers.");
                 return null;
             }
 
-            int index = Random.Range(0, pooledCustomers.Count);
-            Customer customer = pooledCustomers[index];
-            pooledCustomers.RemoveAt(index); // Remove the customer from the pool to ensure it's not reused unless returned.
+            int index = Random.Range(0, pooledSprites.Count);
+            Sprite sprite = pooledSprites[index];
+            pooledSprites.RemoveAt(index); // Remove the customer from the pool to ensure it's not reused unless returned.
+            customerPrefab.GetComponent<SpriteRenderer>().sprite = sprite;
+            GameObject customer = Instantiate(customerPrefab);
             return customer;
         }
 
-        public void ReleaseCustomer(Customer customer)
+        public void ReleaseCustomer(GameObject customer)
         {
             if (customer != null)
             {
-                pooledCustomers.Add(customer);
+                pooledSprites.Add(customer.GetComponent<SpriteRenderer>().sprite);
             }
         }
     }
