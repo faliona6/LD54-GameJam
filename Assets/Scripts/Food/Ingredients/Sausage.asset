@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Sausage
   FoodType: 0
+  salty: 2
+  sweet: 0
+  sour: 0
   cookTime: 7
-  container: {fileID: 0}
+  shape:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
+  center: {x: 0, y: 0}

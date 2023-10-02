@@ -37,10 +37,10 @@ public class ShopSlot : Slot {
         }
     }
 
-    public void SpawnIngredient(Ingredient ingredient) {
-        if (!IsEmpty()) return;
+    public bool SpawnIngredient(Ingredient ingredient) {
+        if (!IsEmpty()) return false;
 
         Ingredient ing = Factory.Instance.CreateIngredientObj(ingredient, transform.position);
-        Place(ing);
+        return Place(ing);
     }
 }

@@ -29,9 +29,9 @@ public class Factory : MonoBehaviour {
         return ing;
     }
     
-    public Ingredient CreateIngredientObj(Ingredient ingredientData, Vector2 pos) {
+    public Ingredient CreateIngredientObj(Ingredient ingredient, Vector2 pos) {
         Ingredient ing = Instantiate(_plateBase, pos, Quaternion.identity).GetComponent<Ingredient>();
-        ing =  ingredientData;
+        ing.ingredientData = ingredient.ingredientData;
 
         return ing;
     }

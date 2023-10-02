@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Food {
     public class Ingredient : MonoBehaviour {
@@ -24,13 +25,21 @@ namespace Food {
         }
 
         void Start() {
-            cookTime = ingredientData.cookTime;
-            shape = ingredientData.shape;
-            center = ingredientData.center;
+            Init();
+        }
 
-            salty = ingredientData.salty;
-            sweet = ingredientData.sweet;
-            sour = ingredientData.sour;
+        bool calledOnce = false;
+        public void Init() {
+            if (!calledOnce) {
+                calledOnce = true;
+                cookTime = ingredientData.cookTime;
+                shape = ingredientData.shape;
+                center = ingredientData.center;
+
+                salty = ingredientData.salty;
+                sweet = ingredientData.sweet;
+                sour = ingredientData.sour;
+            } 
         }
 
         void Copy(Ingredient ingredient) {
