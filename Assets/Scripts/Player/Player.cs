@@ -24,11 +24,8 @@ public class Player : MonoBehaviour {
 
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            // Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            // RaycastHit hit;
             Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 100.0f, _moveableLayer);
-
 
             if (hit) {
                 if (hit.collider != null) {
@@ -65,4 +62,19 @@ public class Player : MonoBehaviour {
             yield return null;
         }
     }
+    
+    // public void SpawnInHand(GameObject obj) {
+    //     _heldMoveable = obj.GetComponent<IMoveable>();
+    //     StartCoroutine(FollowMouse(moveableTrans));
+    //     
+    //     
+    //     
+    //     Factory.Instance.CreateIngredientObj()
+    //     
+    //     Transform moveableTrans = moveable.PickUp();
+    //     if (moveableTrans) {
+    //         _heldMoveable = moveable;
+    //         StartCoroutine(FollowMouse(moveableTrans));
+    //     }
+    // }
 }

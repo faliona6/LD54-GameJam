@@ -10,5 +10,9 @@ namespace Food
         public string name;
         public int cookTimeModifier;
         public int burnTimeModifier;
+
+        public int saltyModifier;
+        public int sweetModifier;
+        public int sourModifier;
     }
 }

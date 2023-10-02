@@ -31,10 +31,14 @@ public class Factory : MonoBehaviour {
     
     public Ingredient CreateIngredientObj(Ingredient ingredientData, Vector2 pos) {
         Ingredient ing = Instantiate(_plateBase, pos, Quaternion.identity).GetComponent<Ingredient>();
-        ing = ingredientData;
+        ing =  ingredientData;
 
         return ing;
     }
+    
+    // TODO:
+    // public Augment CreateAugmentObj(SO_Augments ingredientData, Vector2 pos) {
+    // }
     
     // TODO: wherever (prob customer generator?) stores possible plate containers and calls this func to create Plate GameObject
 
