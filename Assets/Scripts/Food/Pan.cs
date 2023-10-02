@@ -18,6 +18,8 @@ namespace Food
         public List<Transform> knobPositions = new List<Transform>();
         
         [SerializeField] private Button cookButton;
+
+        [SerializeField] AudioSource cookSound;
      
         public PanManager panManager;
         public void Start()
@@ -61,7 +63,8 @@ namespace Food
         private IEnumerator CookingTimer(float totalCookTime, List<Ingredient> ingredientsInPan)
         {
             float timer = 0f;
-
+            cookSound.Play();
+            
             while (timer < totalCookTime)
             {
                 // Increment the timer.
@@ -73,6 +76,7 @@ namespace Food
             }
 
             // Cooking is complete. Finish cooking and set ingredients to be cooked = true.
+            cookSound.Stop();
             FinishCooking(ingredientsInPan);
         }
 

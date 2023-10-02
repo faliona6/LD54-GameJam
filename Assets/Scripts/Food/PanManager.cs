@@ -21,6 +21,8 @@ namespace Food
 
         private Coroutine cookingCoroutine;
         private Coroutine burningCoroutine;
+        
+        AudioSource cookSound;
 
         void Start()
         {
@@ -30,6 +32,7 @@ namespace Food
             _cookingSlots = _slotGrid.GetSlotsOfType(Slot.SlotType.Cooking);
             progressBar.gameObject.SetActive(false);
             cookButtonText = cookButton.GetComponentInChildren<TextMeshProUGUI>();
+            cookSound = GetComponent<AudioSource>();
         }
 
         public void HandleStartCooking()
@@ -76,6 +79,7 @@ namespace Food
             ingredients.ForEach(ingredient => ingredient.FinishCooking());
             isCooking = false;
             cookButton.interactable = true;
+            cookSound.Stop();
         }
 
         private void BurnFood(List<Ingredient> ingredients)
@@ -90,6 +94,7 @@ namespace Food
             SetIngredientsLocked(ingredients, false);
             progressBar.gameObject.SetActive(false);
             cookButtonText.text = "COOK!";
+            cookSound.Stop();
         }
         
         private List<Ingredient> GetIngredientsInPan()
@@ -123,6 +128,7 @@ namespace Food
         private IEnumerator CookingTimer(float totalCookTime, List<Ingredient> ingredientsInPan)
         {
             float timer = 0f;
+            cookSound.Play();
 
             while (timer < totalCookTime)
             {
@@ -141,6 +147,7 @@ namespace Food
             float timer = 0f;
             isBurning = true;
             cookButtonText.text = "STOP";
+            cookSound.Play();
 
             while (timer < burnTime)
             {
