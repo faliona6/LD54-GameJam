@@ -10,24 +10,22 @@ namespace UI
 
         private void Start()
         {
-            if (showOnStart)
-            {
-                Show();
-            }
-            else 
-            {
-                Hide();
-            }
+            ShowHideWindow(showOnStart);
         }
 
-        public void Toggle() {
-            if (_toggle) {
+        public void Toggle()
+        {
+            ShowHideWindow(_toggle);
+            _toggle = !_toggle;
+        }
+
+        private void ShowHideWindow(bool show)
+        {
+            if (show) {
                 Show();
             } else {
                 Hide();
             }
-
-            _toggle = !_toggle;
         }
     
         public void Show() { gameObject.SetActive(true); }

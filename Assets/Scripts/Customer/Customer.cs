@@ -63,6 +63,7 @@ namespace Customer {
             {
                 currentPlate = platePool.GetRandomPlate();
                 currentPlate.transform.SetParent(transform);
+                currentPlate.transform.transform.localPosition = Vector3.zero;
             }
             else
             {
