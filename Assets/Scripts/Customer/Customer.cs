@@ -53,16 +53,23 @@ namespace Customer {
 
         public void CheckIngredients() {
             int totalSalty = 0, totalSweet = 0, totalSour = 0;
-            List<Ingredient> ingredients = currentPlate.GetComponent<Plate>().slotGrid.GetIngredients();
+            Plate curPlate = currentPlate.GetComponent<Plate>();
+            List<Ingredient> ingredients = curPlate.slotGrid.GetIngredients();
             foreach (Ingredient ingredient in ingredients) {
                 totalSalty += ingredient.salty;
                 totalSweet += ingredient.sweet;
                 totalSour += ingredient.sour;
             }
+            
+            // Check slots empty
+            bool allSlotsFilled = true;
+            foreach (var (pos, slot) in curPlate.slotGrid.slotGrid) {
+                if (slot.IsEmpty()) allSlotsFilled = false;
+            }
 
             if (totalSalty >= flavorThreshold[FoodFlavors.Salty] &&
                 totalSweet >= flavorThreshold[FoodFlavors.Sweet] &&
-                totalSour >= flavorThreshold[FoodFlavors.Sour]) {
+                totalSour >= flavorThreshold[FoodFlavors.Sour] && allSlotsFilled) {
                 OnPlateSuccess.Invoke(currentPlate.GetComponent<Plate>().slotGrid.slotGrid.Count * 5);
             }
         }

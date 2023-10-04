@@ -42,7 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="XThreadsFramesViewSplitterKey" value="0.20772947" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.15458937" />
     <property name="rider.run.widget.enabled.cache" value="false" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -87,24 +87,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Customer/Customer.cs</url>
-          <line>110</line>
-          <properties documentPath="C:\Users\bryan\Documents\1_Unity\LD54-GameJam\Assets\Scripts\Customer\Customer.cs" initialLine="110" containingFunctionPresentation="method 'HandleCustomersChanged'">
-            <startOffsets>
-              <option value="4223" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4258" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
