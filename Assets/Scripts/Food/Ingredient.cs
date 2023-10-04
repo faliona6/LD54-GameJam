@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace Food {
     public class Ingredient : MonoBehaviour {
@@ -11,7 +8,7 @@ namespace Food {
         [SerializeField] private SpriteRenderer sprite;
         
         private int cookTime;
-        [HideInInspector] public bool cooked;
+        public bool cooked;
         [HideInInspector] public bool burned;
         [HideInInspector] public int salty;
         [HideInInspector] public int sweet;
@@ -21,12 +18,6 @@ namespace Food {
         [HideInInspector] public Vector2Int center;
         
         [HideInInspector] public int cost;
-
-        SpriteRenderer sr;
-
-        void Awake() {
-            sr = GetComponentInChildren<SpriteRenderer>();
-        }
 
         void Start() {
             Init();
@@ -50,7 +41,7 @@ namespace Food {
 
         void Copy(Ingredient ingredient) {
             ingredientData = ingredient.ingredientData;
-            Start();
+            Init();
         }
 
         public void FinishCooking()

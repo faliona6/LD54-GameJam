@@ -1,19 +1,13 @@
-using System;
 using System.Collections.Generic;
+using Customer;
 using DG.Tweening;
-using Unity.VisualScripting;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
-namespace Food
-{
-
+namespace Food {
     [RequireComponent(typeof(Ingredient))]
     public class MoveableIngredient : MonoBehaviour, IMoveable {
         public List<Transform> nearestSnappableObjs = new List<Transform>();
-
         Ingredient _ingredient;
-
         Slot _orignalSlot;
 
         public bool isLocked = false;
@@ -22,10 +16,7 @@ namespace Food
 
         void Awake() { _ingredient = GetComponent<Ingredient>(); }
 
-        private void OnDestroy()
-        {
-            DOTween.Kill(this);
-        }
+        private void OnDestroy() { DOTween.Kill(this); }
 
         public Transform Drop() {
             // Snap to nearest Slot
@@ -45,6 +36,12 @@ namespace Food
 
             // Snap to Slot
             if (snapSlot && snapSlot.Place(_ingredient)) { // Try placing in slot grid
+                // scale if plate
+                if (snapSlot.GetSlotType() == Slot.SlotType.Plate) {
+                    transform.DOScale(Vector3.one, 0.15f)
+                        .SetEase(Ease.OutCubic)
+                        .SetId(this);
+                }
                 // If valid new position, move to slot
                 return snapSlot.transform;
             } else if (_orignalSlot) { // Place in original slot if available
@@ -61,14 +58,14 @@ namespace Food
                 if (isLocked || !slot.GetComponent<Slot>().PickUpHeld()) { // failed to pickup from slot, such as when slot is locked
                     return null;
                 }
+
                 _orignalSlot = slot.GetComponent<Slot>();
             }
 
             return transform;
         }
 
-        public void Trash()
-        {
+        public void Trash() {
             transform.DOScale(Vector3.zero, 0.3f)
                 .SetEase(Ease.OutCubic)
                 .SetId(this)

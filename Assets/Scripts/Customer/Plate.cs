@@ -21,14 +21,12 @@ namespace Customer
             if (!calledOnce) {
                 calledOnce = true;
                 if (_container == null) _container = container;
-                slotGrid.Init(container);
+                slotGrid.Init(_container);
+                
+                foreach (var (pos, slot) in slotGrid.slotGrid) {
+                    slot.SetSlotType(Slot.SlotType.Plate);
+                }
             } 
-        }
-
-
-        public void Score(List<Ingredient> ingredients)
-        {
-
         }
     }
 }

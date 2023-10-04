@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78126aa7c893a4efbb94817d48474335, type: 3}
   m_Name: Steak
   m_EditorClassIdentifier: 
-  name: 
+  name: Steak
   FoodType: 0
-  salty: 1
-  sweet: 1
-  sour: 1
-  cookTime: 0
+  salty: 2
+  sweet: 0
+  sour: 0
+  cookTime: 12
   shape:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
   center: {x: 0, y: 0}
-  uncookedSprite: {fileID: 0}
-  cookedSprite: {fileID: 0}
+  uncookedSprite: {fileID: -835140824, guid: 908df7c71b5b5844aa7f038412fcf3e5, type: 3}
+  cookedSprite: {fileID: 622285883, guid: 464e71ac841a5de4ea7bb84508dd9a6b, type: 3}
   cost: 5

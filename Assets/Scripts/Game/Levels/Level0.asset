@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level0
   m_EditorClassIdentifier: 
   day: 0
-  numCustomers: 10
+  numCustomers: 100
   endDayNewIngredients: []

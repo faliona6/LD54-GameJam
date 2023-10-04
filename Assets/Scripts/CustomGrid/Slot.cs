@@ -11,7 +11,7 @@ public class Slot : MonoBehaviour {
     public Ingredient Ingredient => _ingredient;
     [SerializeField] Ingredient _ingredient;
 
-    public SlotGrid SlotGrid => SlotGrid;
+    public SlotGrid SlotGrid => _mSlotGrid;
     SlotGrid _mSlotGrid;
 
     public UnityEvent OnSlotPlaced = new UnityEvent();
@@ -25,16 +25,22 @@ public class Slot : MonoBehaviour {
     {
         Empty,
         Cooking,
+        Plate,
     }
 
     // Place handles registering an Ingredient with the slot
     public bool Place(Ingredient ingredient) {
+        // Validation
+        if (slotType == SlotType.Plate && (!ingredient.cooked || ingredient.burned)) {
+            return false;
+        }
         foreach (Vector2Int offset in ingredient.shape) { // should contain center
             Slot s = _mSlotGrid.SelectSlotRelative(new Vector2Int(x, y), offset);
             if (!s || !s.IsEmpty() || !s.canPlace || !slotType.Equals(s.GetSlotType()) ) {
                 return false;
             }
         }
+
         // Set slot fields
         foreach (Vector2Int offset in ingredient.shape) {
             Slot s = _mSlotGrid.SelectSlotRelative(new Vector2Int(x, y), offset);
@@ -43,9 +49,6 @@ public class Slot : MonoBehaviour {
 
         // Set ingredient fields
         ingredient.transform.SetParent(transform);
-        // foreach (Vector2Int pos in _ingredient.shape) {
-        //     
-        // }
 
         OnSlotPlaced.Invoke();
 

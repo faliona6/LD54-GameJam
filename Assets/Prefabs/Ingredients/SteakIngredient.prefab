@@ -9,13 +9,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7
+      value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 256819302105862161, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891490593683773398, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -835140824, guid: 908df7c71b5b5844aa7f038412fcf3e5, type: 3}
     - target: {fileID: 1999884391498400682, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: ingredientData
       value: 
@@ -25,16 +45,24 @@ PrefabInstance:
       value: SteakIngredient
       objectReference: {fileID: 0}
     - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-      propertyPath: m_Size.y
+      propertyPath: m_Size.x
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Size.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_Offset.y
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7976443802153422023, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_LocalScale.x
@@ -88,58 +116,5 @@ PrefabInstance:
     - {fileID: 777925424057071699, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5069176114432675784, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 5683559178292246681}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
---- !u!1 &7846562342250690072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5069176114432675784, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
-  m_PrefabInstance: {fileID: 3079831236326767056}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &5683559178292246681
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7846562342250690072}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.01, y: 0.01}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0

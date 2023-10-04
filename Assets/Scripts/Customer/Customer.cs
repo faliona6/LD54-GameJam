@@ -17,6 +17,7 @@ namespace Customer {
         [SerializeField] private GameObject plateBubble;
         [SerializeField] private Transform activePlateContainer;
         [SerializeField] private Transform previewPlateContainer;
+        [SerializeField] private CompactFlavorPanel flavorRequestPanel;
 
         public Dictionary<FoodFlavors, int> flavorThreshold = new Dictionary<FoodFlavors, int>();
         public Dictionary<FoodType, int> ingredientTypesThreshold = new Dictionary<FoodType, int>();
@@ -111,9 +112,6 @@ namespace Customer {
             disabled.gameObject.SetActive(false);
 
             RequestPlate(current);
-
-            //plateBubble.SetActive(isActive);
-            Debug.Log($"Active: {GameManager.Instance.CustomerManager.GetActiveCustomer().name}");
         }
 
         public void GenerateFlavors() {
@@ -127,9 +125,9 @@ namespace Customer {
             for (int i = 0; i < numberOfFlavors; i++) {
                 FoodFlavors randomFlavor = (FoodFlavors) enumValues.GetValue(random.Next(enumValues.Length));
                 flavorThreshold[randomFlavor]++;
-                
-                print(flavorThreshold[randomFlavor]);
             }
+            
+            flavorRequestPanel.DisplayRequest(flavorThreshold[FoodFlavors.Salty], flavorThreshold[FoodFlavors.Sweet], flavorThreshold[FoodFlavors.Sour]);
         }
 
         public void GenerateIngredientTypes() {

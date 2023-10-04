@@ -42,7 +42,7 @@ namespace Customer
             Transform plateTransform = plate.transform.transform;
             
             // Center plate based on matrix width
-            const float plateYOffset = 8.3f;
+            const float plateYOffset = 7.6f;
             plateTransform.localPosition = 
                 new Vector3((0.5f - plateComp.container.matrix.Count / 2.0f) * plateTransform.localScale.x, 
                     -columns / 2.0f + plateYOffset, 0);

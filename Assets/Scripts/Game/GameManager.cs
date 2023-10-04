@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        
         CustomerManager.OnCustomersDone += Night;
         //TODO: add listerner for upgrademanager done --> Day
 
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void RestartGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single); // TODO: change to load Title screen
+        SceneManager.LoadScene("TitleScene", LoadSceneMode.Single);
         DefeatCanvas.gameObject.SetActive(false);
     }
 

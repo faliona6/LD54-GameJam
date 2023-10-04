@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,7 +18,6 @@ namespace Customer {
         [SerializeField] Transform activeCustomerPos;
         [SerializeField] Customer nextCustomer;
         [SerializeField] Transform nextCustomerPos;
-        [SerializeField] Transform waitingPos; // off screen space to put customers beyond the next customer
 
         public List<Customer> customers = new List<Customer>();
 
@@ -32,7 +32,7 @@ namespace Customer {
                 return;
             }
             
-            Debug.Log("Summoning customers");
+            // Debug.Log("Summoning customers");
 
             _customersLeft = numCustomers;
             CallNextCustomers();
@@ -69,11 +69,12 @@ namespace Customer {
 
             if (nextCustomer) { // set next customer to active if exists
                 activeCustomer = nextCustomer;
+                activeCustomer.transform.DOJump(activeCustomerPos.position, 1, 1, 0.6f);
             } else { // generate new customer
                 activeCustomer = CreateCustomer();
+                activeCustomer.transform.position = activeCustomerPos.position;
             }
 
-            activeCustomer.transform.position = activeCustomerPos.position;
             activeCustomer.OnPlateSuccess.AddListener(PlateSuccess);
             activeCustomer.OnPlateFail.AddListener(PlateFail);
             Timer timer = activeCustomer.gameObject.GetComponent<Timer>();
@@ -103,7 +104,6 @@ namespace Customer {
             return null; // Returns null if the customer creation fails for some reason
         }
 
-        // If you need a method to remove a customer:
         public void RemoveCustomer(Customer customer) {
             if (customer == null) return;
 
@@ -112,10 +112,11 @@ namespace Customer {
                 customerPool.ReleaseCustomer(customer.gameObject);
             }
 
+            OnCustomersChanged -= customer.HandleCustomersChanged;
             customer.OnPlateSuccess.RemoveListener(PlateSuccess);
             customer.OnPlateFail.RemoveListener(PlateFail);
-            Debug.Log("Destroying Customer");
-            Destroy(customer.gameObject);
+
+            customer.transform.DOMove(new Vector3(0, 8, 0), 3f).SetId(this).OnComplete(() => Destroy(customer.gameObject));
         }
         Slider FindSlider(string name)
         {

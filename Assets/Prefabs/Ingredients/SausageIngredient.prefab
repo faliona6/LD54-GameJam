@@ -25,8 +25,12 @@ PrefabInstance:
       value: SausageIngredient
       objectReference: {fileID: 0}
     - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5498088528926589337, guid: 287391a985cdaca4d9523fcd46f5c28f, type: 3}
       propertyPath: m_Enabled
@@ -141,5 +145,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.24, y: 0.7}
   m_EdgeRadius: 0

@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using Food;
 using UnityEngine;
 
-public class Augment : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class Augment : MonoBehaviour {
+    public SO_Augments augmentData;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

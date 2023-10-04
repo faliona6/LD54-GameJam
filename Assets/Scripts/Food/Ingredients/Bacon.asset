@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bacon
   FoodType: 0
-  salty: 1
-  sweet: 1
-  sour: 1
-  cookTime: 5
+  salty: 2
+  sweet: 0
+  sour: 0
+  cookTime: 7
   shape:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
   center: {x: 0, y: 0}
-  uncookedSprite: {fileID: 0}
-  cookedSprite: {fileID: 0}
+  uncookedSprite: {fileID: 718600003, guid: 458d3a0365525b04fa515aed57dadb46, type: 3}
+  cookedSprite: {fileID: -1415209506, guid: 445def7c91f9b9441b1341983a72b8d3, type: 3}
   cost: 5

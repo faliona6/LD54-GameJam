@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78126aa7c893a4efbb94817d48474335, type: 3}
+  m_Name: Croissant
+  m_EditorClassIdentifier: 
+  name: Croissant
+  FoodType: 0
+  salty: 0
+  sweet: 2
+  sour: 0
+  cookTime: 5
+  shape:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: 1}
+  center: {x: 0, y: 0}
+  uncookedSprite: {fileID: -1434320681, guid: 192e4f97fb4753a47971a6c5a16ace4b, type: 3}
+  cookedSprite: {fileID: -1718584369, guid: 78afead98a80ce045b52598e8656df18, type: 3}
+  cost: 5
