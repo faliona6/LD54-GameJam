@@ -36,6 +36,9 @@ namespace Customer {
 
             _customersLeft = numCustomers;
             CallNextCustomers();
+            
+            Debug.Log("Summoned customers");
+            Debug.Log(activeCustomer.transform.position);
         }
 
         public void PlateSuccess(int money) {

@@ -13,7 +13,7 @@ namespace Customer
         private List<Container> pooledPlates = new List<Container>();
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             // Initialize the pool with plates from the assets list.
             for (int i = 0; i < plateSO.Length; i++)

@@ -7,17 +7,18 @@ namespace Customer
 
     public class CustomerPool : MonoBehaviour
     {
-        [SerializeField] private Sprite[] customerSprites;
+        [SerializeField] private List<Sprite> customerSprites = new List<Sprite>();
         [SerializeField] private GameObject customerContainer;
         [SerializeField] private GameObject customerPrefab;
         
-        private List<Sprite> pooledSprites = new();
+         List<Sprite> pooledSprites = new();
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
+            
             // Initialize the pool with plates from the assets list.
-            for (int i = 0; i < customerSprites.Length; i++)
+            for (int i = 0; i < customerSprites.Count; i++)
             {
                 pooledSprites.Add(customerSprites[i]);
             }
@@ -25,6 +26,8 @@ namespace Customer
 
         public GameObject GetRandomCustomer()
         {
+            Debug.Log("AYOOOOOOOOOOOO");
+            
             if (pooledSprites.Count == 0)
             {
                 Debug.LogWarning("Pool is empty! Consider increasing the pool size or reusing customers.");

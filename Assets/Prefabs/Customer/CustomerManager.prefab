@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 274546503113801937}
-  - component: {fileID: 6253898429481219446}
+  - component: {fileID: 7770963849044543098}
   m_Layer: 0
   m_Name: CustomerPool
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 40730317001138036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6253898429481219446
+--- !u!114 &7770963849044543098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,7 +54,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b9c2aa54fd173c2459fcf21fc97de169, type: 3}
   customerContainer: {fileID: 0}
   customerPrefab: {fileID: 936565684341375039, guid: c33fd68bb2b482544b764b0a067c95ea, type: 3}
-  timePrefab: {fileID: 3666141817223809321, guid: ae3654560607dca47a42235657654d93, type: 3}
 --- !u!1 &4470262857322913936
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,14 +157,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platePool: {fileID: 8267382182904698093}
-  customerPool: {fileID: 6253898429481219446}
+  customerPool: {fileID: 0}
   activeCustomer: {fileID: 0}
   activeCustomerPos: {fileID: 0}
   nextCustomer: {fileID: 0}
   nextCustomerPos: {fileID: 0}
-  waitingPos: {fileID: 0}
-  timer: {fileID: 0}
   customers: []
-  OnCustomersDone:
-    m_PersistentCalls:
-      m_Calls: []
